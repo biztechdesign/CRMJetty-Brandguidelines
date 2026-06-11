@@ -29,7 +29,8 @@
   /* Surfaces */
   --c-bg:               #ffffff;
   --c-surface:          #f8f9fa;   /* light page backgrounds */
-  --c-surface-alt:      #eef0f4;   /* icon backgrounds, hover tints */
+  --c-surface-alt:      #eef0f4;   /* hover tints */
+  --c-light-bg:         #EEF4FF;   /* brand light background — icon backgrounds */
   --c-border:           #e8ecf0;   /* default border */
   --c-border-light:     #dce3ec;   /* subtle / inner borders */
   --c-input-border:     #CCD3DD;   /* form element borders — matches live site */
@@ -44,7 +45,7 @@
   --g-primary:  linear-gradient(135deg, #0B1437 0%, #324FC3 100%);
   --g-light:    linear-gradient(135deg, #324FC3 0%, #8aa1ff 100%);
   --g-dark:     linear-gradient(135deg, #0B1437 0%, #022484 100%);
-  --g-subtle:   linear-gradient(135deg, #f0f4ff 0%, #e0e8ff 100%);
+  --g-subtle:   linear-gradient(135deg, #f0f4ff 0%, #eef4ff 100%);
 
   /* Typography — Inter is the sole brand typeface */
   --font-primary:   'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -241,7 +242,7 @@ input,textarea,select{font-family:inherit}
   max-width:1280px;margin:0 auto;
   padding:80px 72px;
   min-height:100vh;
-  display:flex;flex-direction:column;justify-content:center;
+  display:flex;flex-direction:column;justify-content:flex-start;
 }
 .slide.full-bleed .slide-inner{max-width:none;padding:0}
 
@@ -383,7 +384,7 @@ input,textarea,select{font-family:inherit}
 .value-card:hover::before{transform:scaleX(1)}
 .value-icon{
   width:42px;height:42px;
-  border-radius:var(--r-sm);background:var(--c-surface-alt);
+  border-radius:var(--r-sm);background:var(--c-light-bg);
   display:flex;align-items:center;justify-content:center;
   margin-bottom:12px;
 }
@@ -478,8 +479,9 @@ input,textarea,select{font-family:inherit}
 }
 .logo-bg-card svg{width:168px;height:auto}
 .bg-tag{
-  position:absolute;bottom:14px;left:18px;
-  font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  position:absolute;bottom:14px;left:0;right:0;
+  text-align:center;
+  font-size:14px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
 }
 .avoid-tag{
   position:absolute;top:12px;right:12px;
@@ -599,7 +601,7 @@ input,textarea,select{font-family:inherit}
 }
 .color-card{
   border-radius:var(--r-md);overflow:hidden;
-  border:1px solid var(--c-border);
+  border:1px solid var(--c-border);background:#fff;
   cursor:pointer;transition:transform var(--t-fast),box-shadow var(--t-fast);
 }
 .color-card:hover{transform:translateY(-5px);box-shadow:var(--sh-md)}
@@ -630,6 +632,13 @@ input,textarea,select{font-family:inherit}
   display:grid;grid-template-columns:repeat(5,1fr);
   gap:18px;margin-top:20px;
 }
+.bg-util-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.bg-util-swatch{
+  border-radius:var(--r-md);padding:24px 20px;
+  display:flex;flex-direction:column;gap:4px;
+}
+.bg-util-class{font-size:13px;font-weight:700;color:#fff;font-family:monospace;letter-spacing:.3px}
+.bg-util-hex{font-size:11px;color:rgba(255,255,255,.75);font-family:monospace}
 
 .gradient-row{
   display:grid;grid-template-columns:repeat(3,1fr);
@@ -725,7 +734,7 @@ input,textarea,select{font-family:inherit}
   border:1px solid var(--c-border);border-radius:var(--r-md);
   padding:18px 10px;
   display:flex;flex-direction:column;align-items:center;gap:9px;
-  transition:all var(--t-fast);cursor:default;background:#EEF4FF;
+  transition:all var(--t-fast);cursor:default;background:var(--c-light-bg);
 }
 .icon-card:hover{border-color:var(--c-secondary);background:#dce8ff;transform:translateY(-2px);box-shadow:var(--sh-sm)}
 .icon-card svg{width:26px;height:26px;stroke:var(--c-primary);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -903,7 +912,7 @@ input,textarea,select{font-family:inherit}
 .feat-card:hover::after{transform:scaleX(1)}
 .feat-icon{
   width:50px;height:50px;border-radius:var(--r-md);
-  background:var(--c-surface-alt);
+  background:var(--c-light-bg);
   display:flex;align-items:center;justify-content:center;margin-bottom:18px;
 }
 .feat-icon svg{width:24px;height:24px;stroke:var(--c-primary);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -966,7 +975,7 @@ input,textarea,select{font-family:inherit}
 .int-card:hover{box-shadow:var(--sh-md);border-color:var(--c-accent);transform:translateY(-2px)}
 .int-logo{
   width:48px;height:48px;border-radius:var(--r-md);
-  background:var(--c-surface-alt);
+  background:var(--c-light-bg);
   display:flex;align-items:center;justify-content:center;
   font-size:22px;flex-shrink:0;
 }
@@ -1108,10 +1117,10 @@ input,textarea,select{font-family:inherit}
   font-size:var(--fs-sm);font-weight:500;
   display:flex;align-items:flex-start;gap:10px;line-height:1.55;
 }
-.dos-col.do .dos-list li{background:rgba(0,178,89,.07);color:var(--c-success);border:1px solid rgba(0,178,89,.22)}
-.dos-col.dont .dos-list li{background:rgba(220,38,38,.06);color:var(--c-error);border:1px solid rgba(220,38,38,.2)}
-.dos-col.do .dos-list li::before{content:'✓';font-weight:900;color:var(--c-success);flex-shrink:0;margin-top:1px}
-.dos-col.dont .dos-list li::before{content:'✕';font-weight:900;color:var(--c-error);flex-shrink:0;margin-top:1px}
+.dos-col.do .dos-list li{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.dos-col.dont .dos-list li{background:#fff1f2;color:#b91c1c;border:1px solid #fecaca}
+.dos-col.do .dos-list li::before{content:'✓';font-weight:900;color:#22c55e;flex-shrink:0;margin-top:1px}
+.dos-col.dont .dos-list li::before{content:'✕';font-weight:900;color:#ef4444;flex-shrink:0;margin-top:1px}
 
 /* ============================================================
    10 — BRAND SUMMARY
@@ -1369,8 +1378,6 @@ input,textarea,select{font-family:inherit}
   <nav class="sidebar-nav" aria-label="Brand sections">
     <div class="nav-section-label">Brand Identity</div>
     <button class="nav-item active" onclick="gotoSection('cover')"><span class="nav-num">00</span>Cover</button>
-    <button class="nav-item" onclick="gotoSection('brand-overview')"><span class="nav-num">01</span>Brand Overview</button>
-
     <div class="nav-section-label">Visual System</div>
     <button class="nav-item" onclick="gotoSection('logo-primary')"><span class="nav-num">02</span>Logo Guidelines</button>
     <button class="nav-item nav-sub" onclick="gotoSection('logo-backgrounds')"><span class="nav-num">—</span>Logo Backgrounds</button>
@@ -1463,90 +1470,6 @@ input,textarea,select{font-family:inherit}
   </div>
 </section>
 
-<!-- ============================================================
-     01 — BRAND OVERVIEW
-     ============================================================ -->
-<section class="slide" id="brand-overview">
-  <div class="section-num" aria-hidden="true">01</div>
-  <div class="slide-inner">
-    <h2 class="section-title">Brand Overview</h2>
-    <div class="section-divider"></div>
-
-    <div class="overview-grid">
-      <!-- Left: Persona items -->
-      <div class="persona-stack">
-        <div class="persona-item">
-          <span class="persona-key">Positioning</span>
-          <span class="persona-val">CRMJetty is an enterprise-grade CRM portal and customisation platform that empowers businesses to deliver personalised customer, partner, and vendor experiences — built for SalesForce, SuiteCRM, and Dynamics 365.</span>
-        </div>
-        <div class="persona-item">
-          <span class="persona-key">Purpose</span>
-          <span class="persona-val">To bridge the gap between CRM platforms and the people who use them — making every interaction seamless, efficient, and deeply connected.</span>
-        </div>
-        <div class="persona-item">
-          <span class="persona-key">Personality</span>
-          <span class="persona-val">Trustworthy · Technically Sharp · Human-Centric · Forward-thinking · Enterprise-confident · Approachable</span>
-        </div>
-        <div class="persona-item">
-          <span class="persona-key">Tone of Voice</span>
-          <span class="persona-val">Clear and direct. Technically credible without being cold. Confident but never arrogant. Speaks to both developers and decision-makers.</span>
-        </div>
-        <div class="persona-item">
-          <span class="persona-key">Design Direction</span>
-          <span class="persona-val">The redesigned logo — a bold, interlocking <strong>CJ</strong> symbol — signals a modern, connected identity. Navy anchors authority; blue expresses innovation and agility.</span>
-        </div>
-
-        <div class="kw-row">
-          <span class="kw k1">Modern</span>
-          <span class="kw k2">Connected</span>
-          <span class="kw k1">Scalable</span>
-          <span class="kw k3">Secure</span>
-          <span class="kw k4">Flexible</span>
-          <span class="kw k2">Enterprise-Ready</span>
-          <span class="kw k3">Customer-Centric</span>
-          <span class="kw k1">Trustworthy</span>
-        </div>
-      </div>
-
-      <!-- Right: Core values grid -->
-      <div>
-        <p style="font-size:var(--fs-sm);font-weight:700;color:var(--c-primary);margin-bottom:16px;letter-spacing:.4px;text-transform:uppercase;font-size:12px">Core Brand Values</p>
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#324FC3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-            <h4>Connection</h4>
-            <p>Seamlessly linking businesses with their customers, partners, and data.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#324FC3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-            <h4>Trust</h4>
-            <p>Enterprise-grade reliability, security, and compliance at every layer.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#324FC3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <h4>Agility</h4>
-            <p>Fast to deploy, easy to customise, built to evolve with your business.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#324FC3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            <h4>Precision</h4>
-            <p>Purpose-built portals that target exactly what each user role needs.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#324FC3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-            <h4>Scale</h4>
-            <p>From startups to global enterprises &mdash; the platform grows with you.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#324FC3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
-            <h4>Innovation</h4>
-            <p>Continuously improving the CRM experience through thoughtful design.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- ============================================================
@@ -1616,50 +1539,46 @@ input,textarea,select{font-family:inherit}
       <!-- White bg -->
       <div class="logo-bg-card lb-white">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-color"/></svg>
-        <span class="bg-tag">White Background ✓</span>
+        <span class="bg-tag">White Background</span>
       </div>
 
       <!-- Light surface bg -->
       <div class="logo-bg-card lb-surface">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-color"/></svg>
-        <span class="bg-tag">Light Surface ✓</span>
+        <span class="bg-tag">Light Surface</span>
       </div>
 
       <!-- Navy bg — white logo -->
       <div class="logo-bg-card lb-navy">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-white"/></svg>
-        <span class="bg-tag">Dark / Navy ✓</span>
+        <span class="bg-tag">Dark / Navy</span>
       </div>
 
       <!-- Primary blue bg -->
       <div class="logo-bg-card lb-primary">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-white"/></svg>
-        <span class="bg-tag">Brand Primary ✓</span>
+        <span class="bg-tag">Brand Primary</span>
       </div>
 
       <!-- Gradient bg -->
       <div class="logo-bg-card lb-gradient">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-white"/></svg>
-        <span class="bg-tag">Gradient ✓</span>
+        <span class="bg-tag">Gradient</span>
       </div>
 
       <!-- Black Version -->
       <div class="logo-bg-card lb-white">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-black"/></svg>
-        <span class="bg-tag">Black Version ✓</span>
+        <span class="bg-tag">Black Version</span>
       </div>
 
       <!-- White Version -->
       <div class="logo-bg-card lb-pure-black">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-white"/></svg>
-        <span class="bg-tag">White Version ✓</span>
+        <span class="bg-tag">White Version</span>
       </div>
     </div>
 
-    <div style="margin-top:28px;padding:18px 22px;background:#fff;border:1px solid var(--c-border);border-radius:var(--r-md);display:flex;gap:32px;flex-wrap:wrap">
-      <div style="font-size:12px;color:var(--c-text-muted)"><strong style="color:var(--c-success)">✓ Approved:</strong> Full-colour on white/light · White version on dark/navy/blue/gradient · Black version on white/light</div>
-      <div style="font-size:12px;color:var(--c-text-muted)"><strong style="color:var(--c-error)">✕ Avoid:</strong> Red, orange, yellow, busy photography without overlay, very low-contrast backgrounds</div>
-    </div>
   </div>
 </section>
 
@@ -1748,12 +1667,13 @@ input,textarea,select{font-family:inherit}
     </div>
 
     <!-- Approved Monochrome Version -->
-    <div style="margin-top:36px">
-      <div class="misuse-card" style="border-color:rgba(34,197,94,.25);background:rgba(34,197,94,.05);max-width:240px">
+    <div style="margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div class="misuse-card">
         <div class="misuse-visual">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:160px;height:auto"><use href="#cj-logo-gray"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:140px;height:auto"><use href="#cj-logo-gray"/></svg>
         </div>
-        <span class="misuse-badge" style="background:rgba(34,197,94,.15);color:var(--c-success)">Grayscale Version</span>
+        <span class="misuse-badge">Grayscale Version</span>
+        <p class="misuse-desc">For greyscale or B&amp;W documents — single-colour printing, embossing, and fax</p>
       </div>
     </div>
   </div>
@@ -1885,49 +1805,40 @@ input,textarea,select{font-family:inherit}
     <p class="section-subtitle">All colours are sourced directly from the live CRMJetty website — designed to communicate authority, trust, and technological precision.</p>
 
     <p class="cp-sub-label">Primary Colors</p>
-    <div class="color-row" style="margin-top:16px">
+    <div class="color-row" style="margin-top:16px;grid-template-columns:repeat(4,1fr)">
       <div class="color-card" onclick="copyColor('#324FC3',this)">
         <div class="color-swatch" style="background:#324FC3"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info">
-          <div class="color-name">Primary Blue</div>
+          <div class="color-name">Primary Color</div>
           <div class="color-hex">#324FC3</div>
           <div class="color-rgb">RGB 50, 79, 195</div>
           <div class="color-usage">Buttons, links, section headings, CTAs, tags</div>
         </div>
       </div>
-      <div class="color-card" onclick="copyColor('#0B1437',this)">
-        <div class="color-swatch" style="background:#0B1437"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
-        <div class="color-info">
-          <div class="color-name">Dark Navy</div>
-          <div class="color-hex">#0B1437</div>
-          <div class="color-rgb">RGB 11, 20, 55</div>
-          <div class="color-usage">Hero backgrounds, sidebar, footer, dark sections</div>
-        </div>
-      </div>
       <div class="color-card" onclick="copyColor('#022484',this)">
         <div class="color-swatch" style="background:#022484"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info">
-          <div class="color-name">Logo Navy</div>
+          <div class="color-name">Secondary Color</div>
           <div class="color-hex">#022484</div>
           <div class="color-rgb">RGB 2, 36, 132</div>
           <div class="color-usage">Logo "CRM" wordmark, deep accent, gradient midpoint</div>
         </div>
       </div>
-      <div class="color-card" onclick="copyColor('#8aa1ff',this)">
-        <div class="color-swatch" style="background:#8aa1ff"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
+      <div class="color-card" onclick="copyColor('#0B1437',this)">
+        <div class="color-swatch" style="background:#0B1437"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info">
-          <div class="color-name">Light Accent</div>
-          <div class="color-hex">#8AA1FF</div>
-          <div class="color-rgb">RGB 138, 161, 255</div>
-          <div class="color-usage">Gradient highlights, focus rings, active indicators</div>
+          <div class="color-name">Dark Background</div>
+          <div class="color-hex">#0B1437</div>
+          <div class="color-rgb">RGB 11, 20, 55</div>
+          <div class="color-usage">Hero backgrounds, sidebar, footer, dark sections</div>
         </div>
       </div>
-      <div class="color-card" onclick="copyColor('#e0e8ff',this)">
-        <div class="color-swatch" style="background:#e0e8ff;border:1px solid #dce3ec"><button class="copy-btn" style="color:#555;background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.1)" tabindex="-1">Copy HEX</button></div>
+      <div class="color-card" onclick="copyColor('#eef4ff',this)">
+        <div class="color-swatch" style="background:#eef4ff;border:1px solid #dce3ec"><button class="copy-btn" style="color:#555;background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.1)" tabindex="-1">Copy HEX</button></div>
         <div class="color-info">
-          <div class="color-name">Blue Tint</div>
-          <div class="color-hex">#E0E8FF</div>
-          <div class="color-rgb">RGB 224, 232, 255</div>
+          <div class="color-name">Light Background</div>
+          <div class="color-hex">#EEF4FF</div>
+          <div class="color-rgb">RGB 238, 244, 255</div>
           <div class="color-usage">Icon backgrounds, tag fills, hover surfaces</div>
         </div>
       </div>
@@ -1938,12 +1849,12 @@ input,textarea,select{font-family:inherit}
       <div class="ratio-bar">
         <div class="ratio-seg" style="flex:60;background:#324FC3">60%</div>
         <div class="ratio-seg" style="flex:30;background:#0B1437">30%</div>
-        <div class="ratio-seg" style="flex:10;background:#8aa1ff">10%</div>
+        <div class="ratio-seg" style="flex:10;background:#eef4ff;color:#324FC3">10%</div>
       </div>
       <div class="ratio-legend">
-        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#324FC3"></div>Primary Blue — 60% (dominant — buttons, headings, interactive)</div>
-        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#0B1437"></div>Dark Navy — 30% (hero backgrounds, dark sections)</div>
-        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#8aa1ff"></div>Light Accent — 10% (highlights, gradients, focus states)</div>
+        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#324FC3"></div>Primary Color — 60% (dominant — buttons, headings, interactive)</div>
+        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#0B1437"></div>Dark Background — 30% (hero backgrounds, dark sections)</div>
+        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#eef4ff;border:1px solid #dce3ec"></div>Light Background — 10% (highlights, gradients, focus states)</div>
       </div>
     </div>
 
@@ -1976,13 +1887,13 @@ input,textarea,select{font-family:inherit}
           <div class="color-usage">Captions, metadata, placeholder text</div>
         </div>
       </div>
-      <div class="color-card" onclick="copyColor('#f8f9fa',this)">
-        <div class="color-swatch" style="background:#f8f9fa;border:1px solid #e8ecf0"><button class="copy-btn" style="color:#555;background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.1)" tabindex="-1">Copy HEX</button></div>
+      <div class="color-card" onclick="copyColor('#ffffff',this)">
+        <div class="color-swatch" style="background:#ffffff;border:1px solid #e8ecf0"><button class="copy-btn" style="color:#555;background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.1)" tabindex="-1">Copy HEX</button></div>
         <div class="color-info">
-          <div class="color-name">Surface Light</div>
-          <div class="color-hex">#F8F9FA</div>
-          <div class="color-rgb">RGB 248, 249, 250</div>
-          <div class="color-usage">Alternating section backgrounds, card surfaces</div>
+          <div class="color-name">Text White</div>
+          <div class="color-hex">#FFFFFF</div>
+          <div class="color-rgb">RGB 255, 255, 255</div>
+          <div class="color-usage">Text on dark/navy/blue backgrounds</div>
         </div>
       </div>
       <div class="color-card" onclick="copyColor('#e8ecf0',this)">
@@ -1998,26 +1909,22 @@ input,textarea,select{font-family:inherit}
 
     <!-- SEMANTIC / SYSTEM COLORS -->
     <p class="cp-sub-label">Semantic / System Colors</p>
-    <div class="semantic-row" style="margin-top:16px">
-      <div class="color-card" onclick="copyColor('#22c55e',this)">
-        <div class="color-swatch" style="background:#22c55e"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
-        <div class="color-info"><div class="color-name">Success</div><div class="color-hex">#22C55E</div><div class="color-rgb">RGB 34, 197, 94</div><div class="color-usage">Success states, confirmations, positive badges</div></div>
+    <div class="semantic-row" style="margin-top:16px;grid-template-columns:repeat(4,1fr)">
+      <div class="color-card" onclick="copyColor('#28a745',this)">
+        <div class="color-swatch" style="background:#28a745"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
+        <div class="color-info"><div class="color-name">Success</div><div class="color-hex">#28A745</div><div class="color-rgb">RGB 40, 167, 69</div><div class="color-usage">Success states, confirmations, positive badges</div></div>
       </div>
-      <div class="color-card" onclick="copyColor('#f59e0b',this)">
-        <div class="color-swatch" style="background:#f59e0b"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
-        <div class="color-info"><div class="color-name">Warning</div><div class="color-hex">#F59E0B</div><div class="color-rgb">RGB 245, 158, 11</div><div class="color-usage">Warnings, pending states, caution banners</div></div>
+      <div class="color-card" onclick="copyColor('#ffc107',this)">
+        <div class="color-swatch" style="background:#ffc107"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
+        <div class="color-info"><div class="color-name">Warning</div><div class="color-hex">#FFC107</div><div class="color-rgb">RGB 255, 193, 7</div><div class="color-usage">Warnings, pending states, caution banners</div></div>
       </div>
-      <div class="color-card" onclick="copyColor('#ef4444',this)">
-        <div class="color-swatch" style="background:#ef4444"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
-        <div class="color-info"><div class="color-name">Error</div><div class="color-hex">#EF4444</div><div class="color-rgb">RGB 239, 68, 68</div><div class="color-usage">Errors, destructive actions, critical alerts</div></div>
+      <div class="color-card" onclick="copyColor('#dc3545',this)">
+        <div class="color-swatch" style="background:#dc3545"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
+        <div class="color-info"><div class="color-name">Error</div><div class="color-hex">#DC3545</div><div class="color-rgb">RGB 220, 53, 69</div><div class="color-usage">Errors, destructive actions, critical alerts</div></div>
       </div>
       <div class="color-card" onclick="copyColor('#2563eb',this)">
         <div class="color-swatch" style="background:#2563eb"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info"><div class="color-name">Info</div><div class="color-hex">#2563EB</div><div class="color-rgb">RGB 37, 99, 235</div><div class="color-usage">Informational banners, tooltips, security sections</div></div>
-      </div>
-      <div class="color-card" onclick="copyColor('#c73c22',this)">
-        <div class="color-swatch" style="background:#c73c22"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
-        <div class="color-info"><div class="color-name">CTA Red-Orange</div><div class="color-hex">#C73C22</div><div class="color-rgb">RGB 199, 60, 34</div><div class="color-usage">Play buttons, urgent CTAs, promotional highlights</div></div>
       </div>
     </div>
 
@@ -2080,7 +1987,7 @@ input,textarea,select{font-family:inherit}
           <td>Interactive links, CTA labels, active nav items</td>
         </tr>
         <tr>
-          <td>Reversed Text</td>
+          <td>Text White</td>
           <td><span class="tc-dot" style="background:#ffffff;border:1px solid #e8ecf0;box-sizing:border-box"></span></td>
           <td class="code">#FFFFFF</td>
           <td class="code">--c-white</td>
@@ -2267,14 +2174,14 @@ input,textarea,select{font-family:inherit}
     <p class="fav-group-label" style="margin-top:40px;margin-bottom:0;display:block">Icon Color Usage</p>
     <div style="display:flex;gap:0;flex-wrap:wrap;margin-top:24px;align-items:flex-start">
 
-      <!-- No background: Primary Blue -->
+      <!-- No background: Primary Color -->
       <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 32px 0 0">
         <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center">
           <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:#324FC3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
         </div>
-        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Primary Blue</span>
+        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Primary Color</span>
         <span style="font-size:12px;color:var(--c-text-muted);text-align:center;line-height:1.5">#324FC3<br>No background</span>
       </div>
 
@@ -2305,13 +2212,13 @@ input,textarea,select{font-family:inherit}
 
       <!-- With background: Light -->
       <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
-        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;background:#E0E8FF;border-radius:20px">
+        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;background:#EEF4FF;border-radius:20px">
           <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:#324FC3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
         </div>
         <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Light Background</span>
-        <span style="font-size:12px;color:var(--c-text-muted);text-align:center;line-height:1.5">#E0E8FF bg<br>Primary Blue icon</span>
+        <span style="font-size:12px;color:var(--c-text-muted);text-align:center;line-height:1.5">#EEF4FF bg<br>Primary Color icon</span>
       </div>
     </div>
 
@@ -3036,7 +2943,7 @@ input,textarea,select{font-family:inherit}
 
   /* â”€â”€ Section IDs in order â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   const SECTIONS = [
-    'cover', 'brand-overview',
+    'cover',
     'logo-primary', 'logo-backgrounds', 'logo-misuse', 'logo-favicon',
     'colors-primary',
     'typography-primary', 'typography-scale',
