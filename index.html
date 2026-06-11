@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <style>
 /* ============================================================
    DESIGN TOKENS / CSS VARIABLES
@@ -36,9 +36,9 @@
   --c-input-border:     #CCD3DD;   /* form element borders — matches live site */
 
   /* Semantic */
-  --c-success:          #22c55e;   /* matches live site green badge */
+  --c-success:          #28A745;   /* brand success green */
   --c-warning:          #f59e0b;
-  --c-error:            #ef4444;
+  --c-error:            #DC3545;   /* brand error red */
   --c-info:             #2563eb;   /* matches live site security-section blue */
 
   /* Gradients */
@@ -453,15 +453,11 @@ input,textarea,select{font-family:inherit}
   font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
   color:var(--c-secondary);background:var(--c-surface);padding:0 5px;
 }
-.logo-spec-list{display:grid;gap:12px}
-.logo-spec-row{
-  background:var(--c-surface);border:1px solid var(--c-border-light);
-  border-radius:var(--r-md);padding:16px 18px;
-  display:flex;gap:16px;align-items:flex-start;
-}
+.logo-spec-list{display:grid;gap:20px}
+.logo-spec-row{display:flex;flex-direction:column;gap:8px}
 .lsr-key{
-  font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
-  color:var(--c-secondary);min-width:108px;padding-top:1px;flex-shrink:0;
+  font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--c-text-muted);
 }
 .lsr-val{font-size:14px;color:var(--c-text-secondary);line-height:1.65}
 
@@ -481,7 +477,7 @@ input,textarea,select{font-family:inherit}
 .bg-tag{
   position:absolute;bottom:14px;left:0;right:0;
   text-align:center;
-  font-size:14px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
 }
 .avoid-tag{
   position:absolute;top:12px;right:12px;
@@ -726,19 +722,42 @@ input,textarea,select{font-family:inherit}
 #iconography{background:var(--c-bg)}
 #photography{background:#fff}
 
-.icon-grid{
-  display:grid;grid-template-columns:repeat(8,1fr);
-  gap:14px;margin-top:44px;
+/* Material Symbols — thin weight global baseline */
+.material-symbols-outlined{
+  font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;
+  font-style:normal;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;
+  user-select:none;flex-shrink:0;
 }
-.icon-card{
-  border:1px solid var(--c-border);border-radius:var(--r-md);
-  padding:18px 10px;
-  display:flex;flex-direction:column;align-items:center;gap:9px;
-  transition:all var(--t-fast);cursor:default;background:var(--c-light-bg);
+.int-logo .material-symbols-outlined{font-size:22px;color:var(--c-primary)}
+
+/* Icon style groups */
+.icon-group{margin-top:36px}
+.icon-group+.icon-group{margin-top:56px}
+.icon-group-heading{
+  font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--c-text-muted);margin:0;
+  display:flex;align-items:center;gap:10px;
 }
-.icon-card:hover{border-color:var(--c-secondary);background:#dce8ff;transform:translateY(-2px);box-shadow:var(--sh-sm)}
-.icon-card svg{width:26px;height:26px;stroke:var(--c-primary);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.icon-group-heading::after{content:'';flex:1;height:1px;background:var(--c-border)}
+.icon-style-grid{
+  display:grid;grid-template-columns:repeat(10,1fr);
+  gap:12px;margin-top:24px;
+}
+.icon-style-item{display:flex;flex-direction:column;align-items:center;gap:10px}
+.icon-nobg-wrap,.icon-bg-wrap{
+  width:64px;height:64px;
+  display:flex;align-items:center;justify-content:center;
+}
+.icon-bg-wrap{border-radius:var(--r-lg)}
+.icon-style-item .material-symbols-outlined{font-size:28px}
 .icon-label{font-size:14px;font-weight:600;color:var(--c-text-muted);text-align:center;letter-spacing:.2px}
+.ig-primary .icon-nobg-wrap .material-symbols-outlined{color:#324FC3}
+.ig-secondary .icon-nobg-wrap .material-symbols-outlined{color:#022484}
+.ig-light .icon-bg-wrap{background:#EEF4FF}
+.ig-light .icon-bg-wrap .material-symbols-outlined{color:#022484}
+.ig-dark .icon-bg-wrap{background:#0B1437}
+.ig-dark .icon-bg-wrap .material-symbols-outlined{color:#fff}
 
 .icon-specs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
 .icon-spec{
@@ -785,23 +804,25 @@ input,textarea,select{font-family:inherit}
 
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  padding:10px 20px;border-radius:var(--r-sm);
+  height:42px;padding:0 20px;border-radius:var(--r-sm);
   font-size:14px;font-weight:700;font-family:var(--font-primary);
   transition:all var(--t-fast);cursor:pointer;
   border:2px solid transparent;white-space:nowrap;line-height:1;letter-spacing:.15px;
 }
-.btn svg{width:15px;height:15px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.btn-sm{padding:7px 16px;font-size:14px;font-weight:600}
-.btn-lg{padding:11px 26px;font-size:15px;border-radius:var(--r-sm)}
-.btn-icon-only{padding:10px;border-radius:var(--r-sm)}
+.btn .material-symbols-outlined{font-size:18px;flex-shrink:0}
+.btn-sm{height:34px;padding:0 16px;font-size:14px;font-weight:600}
+.btn-lg{height:48px;padding:0 26px;font-size:15px;border-radius:var(--r-sm)}
+.btn-icon-only{width:42px;padding:0;border-radius:var(--r-sm)}
+.btn-sm.btn-icon-only{width:34px}
+.btn-lg.btn-icon-only{width:48px}
 
 .btn-primary{background:var(--c-primary);color:#fff;border-color:var(--c-primary)}
-.btn-primary:hover{background:var(--c-primary-dark);border-color:var(--c-surface);color:#fff}
+.btn-primary:hover{background:var(--c-primary-dark);border-color:var(--c-primary-dark);color:#fff}
 .btn-primary:active{background:var(--c-primary-dark)}
 .btn-primary:disabled{opacity:.55;cursor:not-allowed}
 
 .btn-secondary{background:var(--c-secondary);color:#fff;border-color:var(--c-secondary)}
-.btn-secondary:hover{background:var(--c-primary-dark);border-color:var(--c-surface);color:#fff}
+.btn-secondary:hover{background:var(--c-primary-dark);border-color:var(--c-primary-dark);color:#fff}
 .btn-secondary:disabled{opacity:.55;cursor:not-allowed}
 
 .btn-outline{background:transparent;color:var(--c-primary);border-color:var(--c-primary)}
@@ -818,7 +839,7 @@ input,textarea,select{font-family:inherit}
 .btn-gradient:hover{box-shadow:0 8px 24px rgba(50,79,195,.38);transform:translateY(-1px)}
 
 .btn-danger{background:var(--c-error);color:#fff;border-color:var(--c-error)}
-.btn-danger:hover{background:#dc2626;transform:translateY(-1px)}
+.btn-danger:hover{background:#dc2626;border-color:#dc2626;transform:translateY(-1px)}
 
 /* Focus styles — match live site: no outline/shadow on buttons or links */
 .btn:focus,.btn:focus-visible{outline:none;box-shadow:none}
@@ -836,8 +857,8 @@ input,textarea,select{font-family:inherit}
 .fg .helper{font-size:13px;color:var(--c-text-muted);margin-top:3px}
 
 .fi-wrap{position:relative}
-.fi-wrap svg.fi-icon-l{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--c-text-muted);fill:none;stroke-width:1.8;stroke-linecap:round;pointer-events:none}
-.fi-wrap svg.fi-icon-r{position:absolute;right:13px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--c-text-muted);fill:none;stroke-width:1.8;stroke-linecap:round;pointer-events:none}
+.fi-wrap .fi-icon-l{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--c-text-muted);pointer-events:none;line-height:1}
+.fi-wrap .fi-icon-r{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--c-text-muted);pointer-events:none;line-height:1}
 
 .f-input,.f-select,.f-textarea{
   width:100%;border:1px solid var(--c-input-border);
@@ -900,7 +921,7 @@ input,textarea,select{font-family:inherit}
 
 .feat-card{
   background:#fff;border:1px solid var(--c-border);
-  border-radius:var(--r-lg);padding:28px;
+  border-radius:var(--r-lg);padding:20px;
   transition:all var(--t-base);position:relative;overflow:hidden;
 }
 .feat-card::after{
@@ -915,7 +936,7 @@ input,textarea,select{font-family:inherit}
   background:var(--c-light-bg);
   display:flex;align-items:center;justify-content:center;margin-bottom:18px;
 }
-.feat-icon svg{width:24px;height:24px;stroke:var(--c-primary);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feat-icon .material-symbols-outlined{font-size:24px;color:var(--c-primary)}
 .feat-card h3{font-size:var(--fs-md);font-weight:700;color:var(--c-primary);margin-bottom:9px}
 .feat-card p{font-size:var(--fs-sm);color:var(--c-text-muted);line-height:1.7}
 
@@ -942,7 +963,7 @@ input,textarea,select{font-family:inherit}
 
 .testi-card{
   background:var(--c-primary);border-radius:var(--r-lg);
-  padding:30px;color:#fff;position:relative;overflow:hidden;
+  padding:20px;color:#fff;position:relative;overflow:hidden;
 }
 .testi-card::before{
   content:'\201C';position:absolute;top:-18px;left:16px;
@@ -957,18 +978,20 @@ input,textarea,select{font-family:inherit}
 
 .stat-card{
   background:#fff;border:1px solid var(--c-border);
-  border-radius:var(--r-lg);padding:26px;transition:all var(--t-base);
+  border-radius:var(--r-lg);padding:20px;transition:all var(--t-base);
+  display:flex;flex-direction:column;
 }
 .stat-card:hover{box-shadow:var(--sh-md)}
 .stat-val{font-size:38px;font-weight:900;font-family:var(--font-primary);color:var(--c-primary);line-height:1;letter-spacing:-2px}
 .stat-lbl{font-size:var(--fs-sm);color:var(--c-text-muted);margin-top:6px}
-.stat-chg{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;margin-top:7px}
+.stat-chg{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;margin-top:auto;padding-top:16px}
+.stat-chg .material-symbols-outlined{font-size:16px}
 .stat-chg.up{color:var(--c-success)}
 .stat-chg.dn{color:var(--c-error)}
 
 .int-card{
   background:#fff;border:1px solid var(--c-border);
-  border-radius:var(--r-md);padding:22px;
+  border-radius:var(--r-md);padding:20px;
   display:flex;align-items:center;gap:16px;
   transition:all var(--t-base);
 }
@@ -1024,9 +1047,10 @@ input,textarea,select{font-family:inherit}
 }
 .mock-hero-badge{
   display:inline-flex;align-items:center;gap:6px;
-  padding:4px 12px;background:var(--c-surface-alt);
-  border-radius:20px;font-size:12px;font-weight:700;
-  color:var(--c-secondary);margin-bottom:16px;letter-spacing:.3px;
+  padding:4px 12px;background:var(--c-light-bg);
+  border:1px solid rgba(50,79,195,.15);
+  border-radius:20px;font-size:12px;font-weight:600;
+  color:var(--c-primary);margin-bottom:16px;letter-spacing:.2px;
 }
 .mock-h1{
   font-size:30px;font-weight:900;
@@ -1053,10 +1077,12 @@ input,textarea,select{font-family:inherit}
   border-radius:var(--r-lg);padding:26px;
 }
 .web-spec-card h4{
-  font-size:var(--fs-sm);font-weight:700;color:var(--c-primary);
-  margin-bottom:14px;display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--c-text-muted);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
 }
-.web-spec-card h4::before{content:'';width:4px;height:16px;background:var(--g-primary);border-radius:2px}
+.web-spec-card h4::after{content:'';flex:1;height:1px;background:var(--c-border)}
+.web-spec-card h4::before{display:none}
 .ws-list{display:grid;gap:7px}
 .ws-row{font-size:13px;color:var(--c-text-secondary);display:flex;gap:9px}
 .ws-row span:first-child{
@@ -1106,9 +1132,11 @@ input,textarea,select{font-family:inherit}
 #dos-donts{background:var(--c-bg)}
 .dos-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:44px}
 .dos-col h3{
-  font-size:var(--fs-lg);font-weight:800;
-  margin-bottom:20px;display:flex;align-items:center;gap:9px;
+  font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--c-text-muted);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
 }
+.dos-col h3::after{content:'';flex:1;height:1px;background:var(--c-border)}
 .dos-col.do h3{color:var(--c-success)}
 .dos-col.dont h3{color:var(--c-error)}
 .dos-list{display:grid;gap:10px}
@@ -1119,48 +1147,12 @@ input,textarea,select{font-family:inherit}
 }
 .dos-col.do .dos-list li{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
 .dos-col.dont .dos-list li{background:#fff1f2;color:#b91c1c;border:1px solid #fecaca}
-.dos-col.do .dos-list li::before{content:'✓';font-weight:900;color:#22c55e;flex-shrink:0;margin-top:1px}
-.dos-col.dont .dos-list li::before{content:'✕';font-weight:900;color:#ef4444;flex-shrink:0;margin-top:1px}
+.dos-col.do .dos-list li::before{content:'✓';font-weight:900;color:#28A745;flex-shrink:0;margin-top:1px}
+.dos-col.dont .dos-list li::before{content:'✕';font-weight:900;color:#DC3545;flex-shrink:0;margin-top:1px}
 
 /* ============================================================
    10 — BRAND SUMMARY
    ============================================================ */
-#brand-summary{background:var(--c-primary-dark);overflow:hidden}
-.summary-bg{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,#0B1437 0%,#022484 48%,#324FC3 100%);
-}
-.summary-inner{
-  position:relative;z-index:1;
-  display:flex;flex-direction:column;justify-content:center;
-  min-height:100vh;padding:80px 72px;
-  max-width:1280px;margin:0 auto;
-}
-.summary-touch-grid{
-  display:grid;grid-template-columns:repeat(5,1fr);
-  gap:18px;margin-top:52px;
-}
-.summary-touch{
-  background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.1);
-  border-radius:var(--r-lg);padding:22px 18px;
-  transition:all var(--t-base);
-}
-.summary-touch:hover{background:rgba(255,255,255,.12);transform:translateY(-4px)}
-.touch-icon{width:36px;height:36px;margin-bottom:10px;display:flex;align-items:center;justify-content:center}
-.touch-icon .material-symbols-outlined{font-size:28px;color:rgba(255,255,255,.8)}
-.summary-touch h4{font-size:var(--fs-sm);font-weight:700;color:#fff;margin-bottom:5px}
-.summary-touch p{font-size:13px;color:rgba(255,255,255,.58);line-height:1.6}
-
-.summary-closing{
-  margin-top:52px;padding-top:36px;
-  border-top:1px solid rgba(255,255,255,.1);
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
-}
-.summary-logo svg{width:160px;height:auto}
-.summary-credits{text-align:right}
-.summary-credits p{font-size:12px;color:rgba(255,255,255,.32);line-height:1.7}
-.summary-credits strong{color:rgba(255,255,255,.58)}
-
 /* ============================================================
    UTILITIES
    ============================================================ */
@@ -1182,8 +1174,7 @@ input,textarea,select{font-family:inherit}
   :root{--nav-width:220px}
   .slide-inner{padding:64px 48px}
   .color-row{grid-template-columns:repeat(3,1fr)}
-  .icon-grid{grid-template-columns:repeat(5,1fr)}
-  .summary-touch-grid{grid-template-columns:repeat(3,1fr)}
+  .icon-style-grid{grid-template-columns:repeat(5,1fr)}
 }
 @media(max-width:900px){
   .sidebar{left:-100%;transition:left var(--t-base)}
@@ -1195,19 +1186,17 @@ input,textarea,select{font-family:inherit}
   .misuse-grid{grid-template-columns:repeat(2,1fr)}
   .logo-bg-grid,.audience-grid,.cards-grid{grid-template-columns:repeat(2,1fr)}
   .color-row{grid-template-columns:repeat(2,1fr)}
-  .icon-grid{grid-template-columns:repeat(4,1fr)}
+  .icon-style-grid{grid-template-columns:repeat(4,1fr)}
   .web-spec-grid{grid-template-columns:1fr}
   .cover-deco{display:none}
   .section-num{font-size:64px;right:24px}
   .slide-inner{padding:60px 32px}
-  .summary-touch-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:640px){
   .cover-headline{font-size:40px}
   .section-title{font-size:30px}
   .logo-bg-grid,.audience-grid,.misuse-grid,.cards-grid{grid-template-columns:1fr}
   .gradient-row,.semantic-row{grid-template-columns:1fr 1fr}
-  .summary-touch-grid{grid-template-columns:1fr}
   .favicon-row{justify-content:center}
   .mock-hero{grid-template-columns:1fr}
   .mock-img-ph{display:none}
@@ -1397,7 +1386,6 @@ input,textarea,select{font-family:inherit}
     <button class="nav-item" onclick="gotoSection('website-app')"><span class="nav-num">07</span>Website Application</button>
     <button class="nav-item" onclick="gotoSection('design-tokens')"><span class="nav-num">08</span>Design Tokens</button>
     <button class="nav-item" onclick="gotoSection('dos-donts')"><span class="nav-num">09</span>Do's &amp; Don'ts</button>
-    <button class="nav-item" onclick="gotoSection('brand-summary')"><span class="nav-num">10</span>Brand Summary</button>
   </nav>
 
   <div class="sidebar-footer">
@@ -2042,7 +2030,7 @@ input,textarea,select{font-family:inherit}
 
     <!-- Heading Scale -->
     <div class="type-scale-group">
-      <p class="fav-group-label" style="margin-bottom:0;display:block">Heading Scale</p>
+      <p class="cp-sub-label">Heading Scale</p>
       <div class="type-row">
         <div class="type-meta"><span class="type-tag">H1</span><span class="type-spec">56px · 700 · 1.15</span></div>
         <div class="type-preview"><span style="font-size:48px;font-weight:700;line-height:1.15;color:var(--c-text);font-family:var(--font-primary);letter-spacing:-1px">Digital Transformation</span></div>
@@ -2071,7 +2059,7 @@ input,textarea,select{font-family:inherit}
 
     <!-- Body Text Scale -->
     <div class="type-scale-group">
-      <p class="fav-group-label" style="margin-bottom:0;display:block">Body Text Scale</p>
+      <p class="cp-sub-label">Body Text Scale</p>
       <div class="type-row">
         <div class="type-meta"><span class="type-tag">Body LG</span><span class="type-spec">18px · 400 · 1.7</span></div>
         <div class="type-preview"><span style="font-size:18px;font-weight:400;line-height:1.7;color:var(--c-text-muted);font-family:var(--font-primary)">We build digital products that scale — from MVP to enterprise, with 19 years of proven delivery.</span></div>
@@ -2102,123 +2090,71 @@ input,textarea,select{font-family:inherit}
     <div class="section-divider"></div>
     <p class="section-subtitle">CRMJetty uses <a href="https://fonts.google.com/icons" target="_blank" rel="noopener" style="color:var(--c-primary);font-weight:600;text-decoration:underline;text-underline-offset:3px">Google Material Symbols</a> — rounded outlined style, drawn on a 24×24 grid with 1.8px stroke weight. Icons reinforce feature meaning without overpowering layout.</p>
 
-    <!-- Icon grid — SVG line icons -->
-    <div class="icon-grid">
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        <span class="icon-label">Customers</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        <span class="icon-label">Portal</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-        <span class="icon-label">Dashboard</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        <span class="icon-label">Automation</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        <span class="icon-label">Integration</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span class="icon-label">Security</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        <span class="icon-label">Analytics</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 19.07a10 10 0 010-14.14M15.54 8.46a5 5 0 010 7.07M8.46 15.54a5 5 0 010-7.07"/></svg>
-        <span class="icon-label">Support</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        <span class="icon-label">Performance</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <span class="icon-label">Customise</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-        <span class="icon-label">CRM</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        <span class="icon-label">Vendor</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span class="icon-label">Email</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        <span class="icon-label">Web Portal</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        <span class="icon-label">Configure</span>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/><rect x="2" y="13" width="9" height="9" rx="2"/><path d="M13 17h4M15 13v4"/></svg>
-        <span class="icon-label">Add Module</span>
+    <!-- 1. Primary Color Icons -->
+    <div class="icon-group ig-primary">
+      <span class="icon-group-heading">Primary Color Icons</span>
+      <div class="icon-style-grid">
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">group</span></div><span class="icon-label">Customers</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">desktop_mac</span></div><span class="icon-label">Portal</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">grid_view</span></div><span class="icon-label">Dashboard</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">schedule</span></div><span class="icon-label">Automation</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">inventory_2</span></div><span class="icon-label">Integration</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">security</span></div><span class="icon-label">Security</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">bar_chart</span></div><span class="icon-label">Analytics</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">support_agent</span></div><span class="icon-label">Support</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">mail</span></div><span class="icon-label">Email</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">build</span></div><span class="icon-label">Configure</span></div>
       </div>
     </div>
 
-    <!-- Icon Color Usage -->
-    <p class="fav-group-label" style="margin-top:40px;margin-bottom:0;display:block">Icon Color Usage</p>
-    <div style="display:flex;gap:0;flex-wrap:wrap;margin-top:24px;align-items:flex-start">
-
-      <!-- No background: Primary Color -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 32px 0 0">
-        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center">
-          <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:#324FC3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Primary Color</span>
-        <span style="font-size:12px;color:var(--c-text-muted);text-align:center;line-height:1.5">#324FC3<br>No background</span>
+    <!-- 2. Secondary Color Icons -->
+    <div class="icon-group ig-secondary">
+      <span class="icon-group-heading">Secondary Color Icons</span>
+      <div class="icon-style-grid">
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">group</span></div><span class="icon-label">Customers</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">desktop_mac</span></div><span class="icon-label">Portal</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">grid_view</span></div><span class="icon-label">Dashboard</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">schedule</span></div><span class="icon-label">Automation</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">inventory_2</span></div><span class="icon-label">Integration</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">security</span></div><span class="icon-label">Security</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">bar_chart</span></div><span class="icon-label">Analytics</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">support_agent</span></div><span class="icon-label">Support</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">mail</span></div><span class="icon-label">Email</span></div>
+        <div class="icon-style-item"><div class="icon-nobg-wrap"><span class="material-symbols-outlined">build</span></div><span class="icon-label">Configure</span></div>
       </div>
+    </div>
 
-      <!-- No background: Text Primary -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 32px 0 0">
-        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center">
-          <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:#1A1A1A;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Text Primary</span>
-        <span style="font-size:12px;color:var(--c-text-muted);text-align:center;line-height:1.5">#1A1A1A<br>No background</span>
+    <!-- 3. Light Background Icons -->
+    <div class="icon-group ig-light">
+      <span class="icon-group-heading">Light Background Icons</span>
+      <div class="icon-style-grid">
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">group</span></div><span class="icon-label">Customers</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">desktop_mac</span></div><span class="icon-label">Portal</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">grid_view</span></div><span class="icon-label">Dashboard</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">schedule</span></div><span class="icon-label">Automation</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">inventory_2</span></div><span class="icon-label">Integration</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">security</span></div><span class="icon-label">Security</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">bar_chart</span></div><span class="icon-label">Analytics</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">support_agent</span></div><span class="icon-label">Support</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">mail</span></div><span class="icon-label">Email</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">build</span></div><span class="icon-label">Configure</span></div>
       </div>
+    </div>
 
-      <!-- Vertical divider -->
-      <div style="width:1px;background:var(--c-border);align-self:stretch;margin:0 28px 0 4px"></div>
-
-      <!-- With background: Dark -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 32px 0 0">
-        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;background:#0B1437;border-radius:20px">
-          <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:rgba(255,255,255,0.9);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Dark Background</span>
-        <span style="font-size:12px;color:var(--c-text-muted);text-align:center;line-height:1.5">#0B1437 bg<br>White icon</span>
-      </div>
-
-      <!-- With background: Light -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
-        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;background:#EEF4FF;border-radius:20px">
-          <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:#324FC3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Light Background</span>
-        <span style="font-size:12px;color:var(--c-text-muted);text-align:center;line-height:1.5">#EEF4FF bg<br>Primary Color icon</span>
+    <!-- 4. Dark Background Icons -->
+    <div class="icon-group ig-dark">
+      <span class="icon-group-heading">Dark Background Icons</span>
+      <div class="icon-style-grid">
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">group</span></div><span class="icon-label">Customers</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">desktop_mac</span></div><span class="icon-label">Portal</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">grid_view</span></div><span class="icon-label">Dashboard</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">schedule</span></div><span class="icon-label">Automation</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">inventory_2</span></div><span class="icon-label">Integration</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">security</span></div><span class="icon-label">Security</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">bar_chart</span></div><span class="icon-label">Analytics</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">support_agent</span></div><span class="icon-label">Support</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">mail</span></div><span class="icon-label">Email</span></div>
+        <div class="icon-style-item"><div class="icon-bg-wrap"><span class="material-symbols-outlined">build</span></div><span class="icon-label">Configure</span></div>
       </div>
     </div>
 
@@ -2254,9 +2190,8 @@ input,textarea,select{font-family:inherit}
       <div class="btn-row">
         <span class="btn-row-label">Button Types</span>
         <button class="btn btn-primary">Primary
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span class="material-symbols-outlined">arrow_forward</span>
         </button>
-        <button class="btn btn-secondary">Secondary</button>
         <button class="btn btn-outline">Outline</button>
         <button class="btn btn-ghost">Ghost</button>
         <button class="btn btn-text">Text Link →</button>
@@ -2266,18 +2201,18 @@ input,textarea,select{font-family:inherit}
       <div class="btn-row">
         <span class="btn-row-label">With Icons</span>
         <button class="btn btn-primary">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="material-symbols-outlined">home</span>
           Left Icon
         </button>
-        <button class="btn btn-secondary">
+        <button class="btn btn-primary">
           Right Icon
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span class="material-symbols-outlined">arrow_forward</span>
         </button>
         <button class="btn btn-outline btn-icon-only" aria-label="Settings">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+          <span class="material-symbols-outlined">settings</span>
         </button>
         <button class="btn btn-primary btn-icon-only" aria-label="Add">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span class="material-symbols-outlined">add</span>
         </button>
       </div>
 
@@ -2293,20 +2228,10 @@ input,textarea,select{font-family:inherit}
       <div class="btn-row">
         <span class="btn-row-label">States</span>
         <button class="btn btn-primary">Default</button>
-        <button class="btn btn-primary" style="background:var(--c-primary-dark)">Hover</button>
+        <button class="btn btn-primary" style="background:var(--c-primary-dark);border-color:var(--c-primary-dark)">Hover</button>
         <button class="btn btn-primary" disabled>Disabled</button>
         <button class="btn btn-primary">Focus</button>
         <button class="btn btn-primary" style="transform:scale(.98);box-shadow:none">Active</button>
-      </div>
-
-      <!-- Link styles -->
-      <div class="btn-row">
-        <span class="btn-row-label">Link Styles</span>
-        <a href="#" style="color:var(--c-secondary);font-size:14px;font-weight:500;text-decoration:underline">Default link</a>
-        <a href="#" style="color:var(--c-primary);font-size:14px;font-weight:600;text-decoration:underline">Hover link</a>
-        <a href="#" style="color:var(--c-secondary);font-size:14px;font-weight:500;text-decoration:underline">Focus link</a>
-        <span style="color:var(--c-text-light);font-size:14px;cursor:not-allowed;text-decoration:line-through">Disabled link</span>
-        <a href="#" style="color:var(--c-secondary);font-size:14px;font-weight:500">Inline <span style="text-decoration:underline">text link</span> in body</a>
       </div>
     </div>
 
@@ -2387,7 +2312,7 @@ input,textarea,select{font-family:inherit}
         </div>
 
         <button class="btn btn-primary btn-lg" style="width:100%">Request a Free Demo
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span class="material-symbols-outlined">arrow_forward</span>
         </button>
       </div>
 
@@ -2407,7 +2332,7 @@ input,textarea,select{font-family:inherit}
           <label>Error State</label>
           <div class="fi-wrap">
             <input class="f-input err pr" type="email" value="invalid@">
-            <svg class="fi-icon-r" viewBox="0 0 24 24" style="stroke:var(--c-error)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span class="material-symbols-outlined fi-icon-r" style="color:var(--c-error)">error</span>
           </div>
           <span class="f-err-msg">⚠ Please enter a valid email address</span>
         </div>
@@ -2415,7 +2340,7 @@ input,textarea,select{font-family:inherit}
           <label>Success State</label>
           <div class="fi-wrap">
             <input class="f-input ok pr" type="text" value="john@company.com">
-            <svg class="fi-icon-r" viewBox="0 0 24 24" style="stroke:var(--c-success)"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="material-symbols-outlined fi-icon-r" style="color:var(--c-success)">check_circle</span>
           </div>
           <span class="f-ok-msg">✓ Email verified</span>
         </div>
@@ -2428,7 +2353,7 @@ input,textarea,select{font-family:inherit}
         <div class="fg" style="margin-top:8px">
           <label>Search Field</label>
           <div class="fi-wrap">
-            <svg class="fi-icon-l" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span class="material-symbols-outlined fi-icon-l">search</span>
             <input class="f-input pl" type="search" placeholder="Search CRM records...">
           </div>
         </div>
@@ -2463,25 +2388,19 @@ input,textarea,select{font-family:inherit}
     <!-- Feature cards -->
     <div class="cards-grid">
       <div class="feat-card">
-        <div class="feat-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
+        <div class="feat-icon"><span class="material-symbols-outlined">desktop_mac</span></div>
         <h3>Customer Portal</h3>
         <p>Deliver a self-service portal where customers can manage cases, invoices, and accounts — all in one place.</p>
         <button class="btn btn-text" style="margin-top:14px;padding:0">Learn more →</button>
       </div>
       <div class="feat-card">
-        <div class="feat-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-        </div>
+        <div class="feat-icon"><span class="material-symbols-outlined">storefront</span></div>
         <h3>Vendor Portal</h3>
         <p>Give vendors real-time access to purchase orders, inventory, and collaboration tools through a branded portal.</p>
         <button class="btn btn-text" style="margin-top:14px;padding:0">Learn more →</button>
       </div>
       <div class="feat-card">
-        <div class="feat-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+        <div class="feat-icon"><span class="material-symbols-outlined">security</span></div>
         <h3>Enterprise Security</h3>
         <p>Role-based access, SSO, two-factor authentication, and audit logs keep your CRM data protected at every level.</p>
         <button class="btn btn-text" style="margin-top:14px;padding:0">Learn more →</button>
@@ -2493,20 +2412,18 @@ input,textarea,select{font-family:inherit}
       <div class="stat-card">
         <div class="stat-val">3.5K+</div>
         <div class="stat-lbl">Active Portals Deployed</div>
-        <div class="stat-chg up">→ 24% this quarter</div>
+        <div class="stat-chg up"><span class="material-symbols-outlined">trending_up</span> 24% this quarter</div>
       </div>
       <div class="stat-card">
         <div class="stat-val">99.9%</div>
         <div class="stat-lbl">Platform Uptime SLA</div>
-        <div class="stat-chg up">→ Enterprise grade</div>
+        <div class="stat-chg up"><span class="material-symbols-outlined">trending_up</span> Enterprise grade</div>
       </div>
-      <div class="stat-card" style="grid-column:span 2">
-        <div class="testi-card" style="padding:24px">
-          <p class="testi-text" style="font-size:var(--fs-sm)">"CRMJetty completely transformed how our customers interact with our CRM — setup took days, not months."</p>
-          <div class="testi-author">
-            <div class="testi-av">S</div>
-            <div><div class="testi-name">Sarah Mitchell</div><div class="testi-role">VP Operations · TechCorp Inc.</div></div>
-          </div>
+      <div class="testi-card" style="grid-column:span 2">
+        <p class="testi-text" style="font-size:var(--fs-sm)">"CRMJetty completely transformed how our customers interact with our CRM — setup took days, not months."</p>
+        <div class="testi-author">
+          <div class="testi-av">S</div>
+          <div><div class="testi-name">Sarah Mitchell</div><div class="testi-role">VP Operations · TechCorp Inc.</div></div>
         </div>
       </div>
     </div>
@@ -2514,19 +2431,19 @@ input,textarea,select{font-family:inherit}
     <!-- Integration cards -->
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px">
       <div class="int-card">
-        <div class="int-logo"><svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#324FC3;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="int-logo"><span class="material-symbols-outlined">bolt</span></div>
         <div class="int-info"><h4>Salesforce</h4><p>Full portal integration</p></div>
       </div>
       <div class="int-card">
-        <div class="int-logo"><svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#324FC3;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="int-logo"><span class="material-symbols-outlined">storage</span></div>
         <div class="int-info"><h4>SuiteCRM</h4><p>Open source CRM</p></div>
       </div>
       <div class="int-card">
-        <div class="int-logo"><svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#324FC3;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <div class="int-logo"><span class="material-symbols-outlined">language</span></div>
         <div class="int-info"><h4>Dynamics 365</h4><p>Microsoft ecosystem</p></div>
       </div>
       <div class="int-card">
-        <div class="int-logo"><svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#324FC3;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+        <div class="int-logo"><span class="material-symbols-outlined">api</span></div>
         <div class="int-info"><h4>REST API</h4><p>Custom integrations</p></div>
       </div>
     </div>
@@ -2554,17 +2471,7 @@ input,textarea,select{font-family:inherit}
 
       <!-- Header -->
       <div class="mock-hdr">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:130px;height:auto">
-          <path fill="#324fc3" d="M138.82,69.42c-3.21-2.01-6.77-3.15-10.4-3.41,1.95,3.36,3.01,7.23,3.01,11.28v4.37l17.97,8.93v-2.07c0-7.82-3.95-14.96-10.58-19.1ZM131.43,92.32v42.37c0,4.22-1.21,8.29-3.35,11.78-.07.11-.13.21-.2.32-2.2,3.45-5.34,6.33-9.14,8.17l-40.61,19.73c1.74,2.61,4.04,4.85,6.8,6.58,3.66,2.3,7.79,3.45,11.94,3.45,3.35,0,6.71-.75,9.85-2.28l29.99-16.25c7.71-3.75,12.69-11.7,12.69-20.27v-44.67l-17.97-8.93Z"/>
-          <path fill="#022484" d="M101.12,77.82v-8.04c0-.18,0-.74-.62-1.13-.27-.16-.51-.22-.71-.22-.28,0-.49.1-.58.15l-45.26,21.98c-.45.22-.75.69-.75,1.2v57.4c0,.19,0,.74.63,1.13.62.39,1.12.15,1.28.07l7.2-3.5,12.04-5.84,21.2-10.3,4.82-2.34c.46-.22.75-.69.75-1.2v-15.57l9.11,4.52,1.49.74,10.6,5.27v5.04c0,8.57-4.98,16.53-12.69,20.27l-14.08,6.84-21.08,10.24-10.09,4.9c-3.14,1.53-6.51,2.28-9.86,2.28s-6.34-.68-9.29-2.03c-.91-.41-1.79-.89-2.65-1.42-6.63-4.14-10.58-11.28-10.58-19.1v-57.4c0-8.57,4.98-16.52,12.69-20.27l45.25-21.98c7.03-3.41,15.18-2.98,21.81,1.17,2.58,1.62,4.74,3.68,6.43,6.07,2.05,2.86,3.39,6.19,3.9,9.74.16,1.08.24,2.18.24,3.29v18.58l-10.6-5.27-1.49-.74-7.31-3.64-1.8-.89Z"/>
-          <path fill="#022484" d="M199.99,78.16c1.67-1.67,3.68-2.99,5.97-3.91,2.3-.92,4.86-1.39,7.62-1.39,2.92,0,5.65.6,8.14,1.77,2.49,1.17,4.75,2.94,6.73,5.25l.67.79,10.79-9.86-.6-.73c-3.05-3.72-6.88-6.58-11.39-8.5-4.49-1.91-9.55-2.88-15.04-2.88-4.89,0-9.51.81-13.72,2.42-4.22,1.61-7.94,3.93-11.08,6.91-3.13,2.98-5.6,6.52-7.33,10.54-1.73,4.01-2.61,8.48-2.61,13.27s.88,9.26,2.61,13.27c1.73,4.01,4.18,7.56,7.28,10.54,3.1,2.98,6.82,5.31,11.04,6.92,4.21,1.61,8.83,2.42,13.72,2.42,5.56,0,10.65-.98,15.14-2.92,4.51-1.95,8.34-4.82,11.39-8.54l.6-.73-10.79-9.86-.67.79c-1.97,2.31-4.24,4.09-6.73,5.3-2.48,1.2-5.22,1.81-8.13,1.81-2.76,0-5.32-.47-7.62-1.39-2.29-.92-4.3-2.24-5.97-3.91-1.67-1.67-2.99-3.68-3.91-5.97-.92-2.3-1.39-4.89-1.39-7.71s.47-5.41,1.39-7.71c.92-2.29,2.24-4.3,3.91-5.97Z"/>
-          <polygon fill="#022484" points="352.17 97.4 329.47 59.76 316.01 59.76 316.01 123.91 331.42 123.91 331.42 89.82 348.15 117.26 355.66 117.26 372.42 89.42 372.57 123.91 387.97 123.91 387.97 59.76 374.42 59.76 352.17 97.4"/>
-          <path fill="#324fc3" d="M423.96,106.36c0,5-4.07,9.07-9.07,9.07s-9.07-4.07-9.07-9.17v-1h-8.49v1.1c0,9.68,7.88,17.56,17.55,17.56s17.56-7.88,17.56-17.55v-42.99h-8.49v42.99Z"/>
-          <path fill="#324fc3" d="M471.8,108.94h-.54s-.3.45-.3.45c-1.07,1.65-2.45,3.03-4.09,4.12-5.25,3.48-12.22,3.05-17.03-1.01l29.7-19.59-.37-.78c-.45-.95-.97-1.88-1.54-2.76-.73-1.1-1.52-2.1-2.43-3.05-4.25-4.49-9.99-6.96-16.17-6.96-12.28,0-22.27,9.99-22.27,22.27,0,3.06.61,6.03,1.82,8.83.51,1.19,1.13,2.35,1.85,3.44.73,1.1,1.53,2.1,2.43,3.06,4.25,4.49,9.99,6.96,16.16,6.96,8.96,0,17-5.33,20.5-13.58l.16-.37-.15-.38q-.25-.65-7.74-.64ZM468.22,90.75l-22.8,15.04c-.41-1.34-.62-2.74-.62-4.16,0-7.85,6.39-14.24,14.24-14.24,3.36,0,6.62,1.19,9.18,3.36Z"/>
-          <path fill="#324fc3" d="M499.23,108.81h-.04c.04-.43.04-1.04.04-1.91v-19.46h12.03v-8.15h-6.93l-5.1,4.82v-20.76h-8.15v15.93h-7.71v8.15h7.71v21.37c0,8.33,6.77,15.1,15.1,15.1h5.11v-8.15h-5.11c-3.83,0-6.95-3.12-6.95-6.95Z"/>
-          <path fill="#324fc3" d="M531.1,108.82v-21.37h12.03v-8.15h-6.93l-5.1,4.82v-20.76h-8.15v15.93h-7.71v8.15h7.71v21.37c0,8.33,6.77,15.1,15.1,15.1h5.11v-8.15h-5.11c-3.83,0-6.95-3.12-6.95-6.95Z"/>
-          <polygon fill="#324fc3" points="587.28 79.34 571.44 113.34 555.6 79.34 546.55 79.34 566.92 123.05 558.24 141.67 567.29 141.67 596.33 79.34 587.28 79.34"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:130px;height:auto"><use href="#cj-logo-color"/></svg>
         <div class="mock-nav-links">
           <a href="#">Products</a>
           <a href="#">Solutions</a>
@@ -2582,20 +2489,20 @@ input,textarea,select{font-family:inherit}
       <div class="mock-hero">
         <div>
           <div class="mock-hero-badge">
-            <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:var(--c-secondary);fill:none;stroke-width:2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span class="material-symbols-outlined" style="font-size:14px;color:var(--c-secondary)">bolt</span>
             New: AI-powered CRM Portal Builder
           </div>
           <div class="mock-h1">Build Smarter<br>CRM Portals<br>in Days — Not Months</div>
           <p class="mock-p">CRMJetty empowers enterprises to create fully customised Salesforce, SuiteCRM, and Dynamics 365 portals without writing a single line of code.</p>
           <div class="mock-btns">
             <button class="btn btn-primary">Request Free Demo
-              <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;fill:none;stroke-width:2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span class="material-symbols-outlined" style="font-size:16px;color:white">arrow_forward</span>
             </button>
-            <button class="btn btn-outline btn-sm" style="height:42px;padding:0 20px">Watch Demo â–¶</button>
+            <button class="btn btn-outline btn-sm" style="height:42px;padding:0 20px;display:inline-flex;align-items:center;gap:6px"><span class="material-symbols-outlined" style="font-size:16px">play_circle</span>Watch Demo</button>
           </div>
         </div>
         <div class="mock-img-ph">
-          <span style=”font-size:13px;font-weight:600;color:var(--c-text-muted);display:inline-flex;align-items:center;gap:6px”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”1.8” stroke-linecap=”round” stroke-linejoin=”round” style=”width:16px;height:16px;flex-shrink:0”><line x1=”18” y1=”20” x2=”18” y2=”10”/><line x1=”12” y1=”20” x2=”12” y2=”4”/><line x1=”6” y1=”20” x2=”6” y2=”14”/></svg>Dashboard Mockup</span>
+          <span style="font-size:13px;font-weight:600;color:var(--c-text-muted);display:inline-flex;align-items:center;gap:6px"><span class="material-symbols-outlined" style="font-size:16px">bar_chart</span>Dashboard Mockup</span>
         </div>
       </div>
     </div>
@@ -2677,9 +2584,9 @@ input,textarea,select{font-family:inherit}
   <span class="tok-prop">--color-border</span>:        <span class="tok-val">#e8ecf0</span>;
   <span class="tok-prop">--color-border-light</span>:  <span class="tok-val">#dce3ec</span>;
   <span class="tok-cmt">/* Semantic */</span>
-  <span class="tok-prop">--color-success</span>:       <span class="tok-val">#22c55e</span>;
+  <span class="tok-prop">--color-success</span>:       <span class="tok-val">#28A745</span>;
   <span class="tok-prop">--color-warning</span>:       <span class="tok-val">#f59e0b</span>;
-  <span class="tok-prop">--color-error</span>:         <span class="tok-val">#ef4444</span>;
+  <span class="tok-prop">--color-error</span>:         <span class="tok-val">#DC3545</span>;
   <span class="tok-prop">--color-info</span>:          <span class="tok-val">#2563eb</span>;
 <span class="tok-root">}</span></pre>
         </div>
@@ -2777,8 +2684,8 @@ input,textarea,select{font-family:inherit}
 
     <!-- Row 1: Logo + Color -->
     <div class="dos-grid">
-      <div class=”dos-col do”>
-        <h3><svg viewBox=”0 0 20 20” style=”width:20px;height:20px;fill:none;stroke:var(--c-success);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0”><circle cx=”10” cy=”10” r=”9”/><polyline points=”6 10 9 13 14 7”/></svg> Logo — Do</h3>
+      <div class="dos-col do">
+        <h3>Logo — Do</h3>
         <ul class="dos-list">
           <li>Always use the approved logo file from the official brand kit</li>
           <li>Maintain clear space equal to the height of the "J" on all sides</li>
@@ -2789,7 +2696,7 @@ input,textarea,select{font-family:inherit}
         </ul>
       </div>
       <div class="dos-col dont">
-        <h3><svg viewBox="0 0 20 20" style="width:20px;height:20px;fill:none;stroke:var(--c-error);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="10" cy="10" r="9"/><line x1="6" y1="6" x2="14" y2="14"/><line x1="14" y1="6" x2="6" y2="14"/></svg> Logo — Don't</h3>
+        <h3>Logo — Don't</h3>
         <ul class="dos-list">
           <li>Never stretch, skew, or distort the logo in any direction</li>
           <li>Never rotate or tilt the logo</li>
@@ -2803,7 +2710,7 @@ input,textarea,select{font-family:inherit}
 
     <div class="dos-grid" style="margin-top:28px">
       <div class="dos-col do">
-        <h3><svg viewBox="0 0 20 20" style="width:20px;height:20px;fill:none;stroke:var(--c-success);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="10" cy="10" r="9"/><polyline points="6 10 9 13 14 7"/></svg> Color &amp; Typography — Do</h3>
+        <h3>Color &amp; Typography — Do</h3>
         <ul class="dos-list">
           <li>Use #022484 as the dominant brand colour (60% rule)</li>
           <li>Maintain WCAG AA contrast ratio (≥4.5:1) for all text</li>
@@ -2814,7 +2721,7 @@ input,textarea,select{font-family:inherit}
         </ul>
       </div>
       <div class="dos-col dont">
-        <h3><svg viewBox="0 0 20 20" style="width:20px;height:20px;fill:none;stroke:var(--c-error);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="10" cy="10" r="9"/><line x1="6" y1="6" x2="14" y2="14"/><line x1="14" y1="6" x2="6" y2="14"/></svg> Color &amp; Typography — Don't</h3>
+        <h3>Color &amp; Typography — Don't</h3>
         <ul class="dos-list">
           <li>Do not use green, orange, or yellow as brand accent colours</li>
           <li>Never use pure black (#000000) for primary text</li>
@@ -2828,7 +2735,7 @@ input,textarea,select{font-family:inherit}
 
     <div class="dos-grid" style="margin-top:28px">
       <div class="dos-col do">
-        <h3><svg viewBox="0 0 20 20" style="width:20px;height:20px;fill:none;stroke:var(--c-success);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="10" cy="10" r="9"/><polyline points="6 10 9 13 14 7"/></svg> UI &amp; Website — Do</h3>
+        <h3>UI &amp; Website — Do</h3>
         <ul class="dos-list">
           <li>Use btn-primary for the single main CTA on any page</li>
           <li>Ensure all interactive elements have a visible focus ring</li>
@@ -2838,7 +2745,7 @@ input,textarea,select{font-family:inherit}
         </ul>
       </div>
       <div class="dos-col dont">
-        <h3><svg viewBox="0 0 20 20" style="width:20px;height:20px;fill:none;stroke:var(--c-error);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="10" cy="10" r="9"/><line x1="6" y1="6" x2="14" y2="14"/><line x1="14" y1="6" x2="6" y2="14"/></svg> UI &amp; Website — Don't</h3>
+        <h3>UI &amp; Website — Don't</h3>
         <ul class="dos-list">
           <li>Never use more than two primary CTAs side by side on a page</li>
           <li>Do not remove focus rings for accessibility compliance</li>
@@ -2855,75 +2762,6 @@ input,textarea,select{font-family:inherit}
 <!-- ============================================================
      10 — BRAND SUMMARY
      ============================================================ -->
-<section class="slide slide-dark" id="brand-summary">
-  <div class="summary-bg"></div>
-  <div class="section-num" aria-hidden="true">10</div>
-  <div class="summary-inner">
-    <h2 class="section-title">Brand at a Glance</h2>
-    <div class="section-divider" style="background:rgba(255,255,255,.2)"></div>
-    <p class="section-subtitle">Every touchpoint where the CRMJetty brand lives — apply these guidelines consistently across all channels.</p>
-
-    <div class="summary-touch-grid">
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">language</span></div>
-        <h4>Website</h4>
-        <p>crmjetty.com and all sub-domains and microsites</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">dashboard</span></div>
-        <h4>Product UI</h4>
-        <p>CRM portal, customer dashboards, and in-app surfaces</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">slideshow</span></div>
-        <h4>Sales Decks</h4>
-        <p>Presentations, pitch decks, and proposal templates</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">campaign</span></div>
-        <h4>Marketing</h4>
-        <p>Ads, landing pages, and promotional campaigns</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">email</span></div>
-        <h4>Email</h4>
-        <p>Transactional emails, newsletters, and outreach</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">share</span></div>
-        <h4>Social Media</h4>
-        <p>LinkedIn, Twitter, and all social channel assets</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">menu_book</span></div>
-        <h4>Documentation</h4>
-        <p>Help articles, user guides, and knowledge base</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">print</span></div>
-        <h4>Print &amp; Packaging</h4>
-        <p>Business cards, letterheads, and physical collateral</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">handshake</span></div>
-        <h4>Partner Materials</h4>
-        <p>Co-branded assets for resellers and integration partners</p>
-      </div>
-      <div class="summary-touch">
-        <div class="touch-icon"><span class="material-symbols-outlined">terminal</span></div>
-        <h4>Developer Assets</h4>
-        <p>API docs, SDKs, embeds, and developer portal</p>
-      </div>
-    </div>
-
-    <div class="summary-closing">
-      <div class="summary-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:160px;height:auto"><use href="#cj-logo-white"/></svg>
-      </div>
-      <p style="font-size:12px;color:rgba(255,255,255,.32);line-height:1.7;text-align:right">Version 2025 · For internal &amp; partner use<br>All rights reserved © CRMJetty — A Biztech Company</p>
-    </div>
-  </div>
-</section>
 
 </main><!-- /main-content -->
 </div><!-- /layout -->
@@ -2950,7 +2788,7 @@ input,textarea,select{font-family:inherit}
     'iconography',
     'buttons', 'form-elements', 'cards-section',
     'website-app', 'design-tokens',
-    'dos-donts', 'brand-summary'
+    'dos-donts'
   ];
 
   let currentIdx = 0;
