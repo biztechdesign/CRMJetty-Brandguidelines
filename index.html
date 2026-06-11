@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CRMJetty — Brand Guidelines 2025</title>
+<title>CRMJetty — Brand Guidelines Jun 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
@@ -739,6 +739,13 @@ input,textarea,select{font-family:inherit}
   display:flex;align-items:flex-end;padding:16px 18px;
 }
 .photo-overlay span{color:#fff;font-size:13px;font-weight:600}
+.photo-overlay em{display:block;font-style:normal;font-weight:400;font-size:11px;opacity:.78;margin-top:2px}
+.photo-img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-img.fx-blur{filter:blur(5px) saturate(.65) contrast(.85);transform:scale(1.06)}
+.photo-img.fx-warm{filter:sepia(.55) saturate(1.7) hue-rotate(-10deg)}
+.photo-grad-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,36,132,.6) 0%,rgba(50,79,195,.45) 100%)}
+.photo-stat{position:absolute;top:14px;left:16px;color:#fff;font-weight:900;font-size:26px;line-height:1.1}
+.photo-stat small{display:block;font-size:11px;font-weight:600;opacity:.85;letter-spacing:.3px}
 
 /* ============================================================
    06 — DESIGN ELEMENTS
@@ -1038,7 +1045,63 @@ input,textarea,select{font-family:inherit}
 }
 
 /* ============================================================
-   08 — DESIGN TOKENS
+   08 — SOCIAL MEDIA & BLOG POSTS
+   ============================================================ */
+#social-media{background:var(--c-surface)}
+#blog-branding{background:#fff}
+
+.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.social-tpl{display:flex;flex-direction:column;gap:12px;min-width:0}
+.sp{
+  aspect-ratio:1/1;border-radius:var(--r-lg);overflow:hidden;
+  position:relative;border:1px solid var(--c-border);
+  box-shadow:var(--sh-md);
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.sp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sp-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,20,55,.92) 0%,rgba(11,20,55,.4) 55%,rgba(11,20,55,.15) 100%)}
+.sp-announce{background:var(--g-primary)}
+.sp-logo{position:absolute;top:20px;left:20px;width:96px;height:auto;z-index:2}
+.sp-bottom{position:relative;z-index:2;padding:22px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.sp-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.sp-tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--c-primary);padding:3px 11px;border-radius:12px}
+.sp-headline{font-size:20px;font-weight:800;line-height:1.22;color:#fff;letter-spacing:-.3px}
+.sp-cta{font-size:12px;font-weight:700;color:var(--c-secondary);background:#fff;padding:8px 16px;border-radius:6px}
+.sp-note{font-size:11px;font-weight:600;color:rgba(255,255,255,.75)}
+.sp-stat{background:#fff}
+.sp-stat-center{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 28px 0}
+.sp-stat-num{font-size:62px;font-weight:900;letter-spacing:-2px;line-height:1;background:var(--g-primary);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sp-stat-sub{font-size:12.5px;color:var(--c-text-muted);line-height:1.6;margin-top:12px;max-width:240px}
+.sp-stat-foot{position:relative;margin:0 22px 18px;padding-top:12px;border-top:3px solid var(--c-primary);font-size:11px;font-weight:600;color:var(--c-primary);display:flex;justify-content:space-between;gap:8px}
+.sp-label{font-size:13px;font-weight:700;color:var(--c-secondary)}
+.sp-label em{display:block;font-style:normal;font-weight:400;font-size:11.5px;color:var(--c-text-muted);margin-top:3px}
+
+.blog-mock{background:#fff;padding:44px 24px}
+.blog-article{max-width:680px;margin:0 auto}
+.bm-cat{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--c-primary);background:var(--c-surface-alt);padding:4px 12px;border-radius:14px;margin-bottom:14px}
+.bm-h1{font-size:32px;font-weight:800;font-family:var(--font-primary);color:var(--c-secondary);line-height:1.15;letter-spacing:-.8px;margin-bottom:16px}
+.bm-byline{display:flex;align-items:center;gap:11px;margin-bottom:24px}
+.bm-avatar{width:36px;height:36px;border-radius:50%;background:var(--g-primary);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bm-byline strong{display:block;font-size:13px;color:var(--c-text)}
+.bm-byline div span{font-size:11.5px;color:var(--c-text-muted)}
+.bm-feature{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:16/9;margin-bottom:26px}
+.bm-feature img{width:100%;height:100%;object-fit:cover;display:block}
+.bm-feature-shade{position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,36,132,.3),rgba(50,79,195,.12))}
+.bm-p{font-size:14.5px;color:var(--c-text-secondary);line-height:1.75;margin-bottom:18px}
+.bm-h2{font-size:21px;font-weight:700;color:var(--c-primary);margin:6px 0 12px;letter-spacing:-.3px}
+.bm-quote{border-left:4px solid var(--c-primary);padding:6px 0 6px 20px;margin:22px 0;font-size:16.5px;font-weight:600;font-style:italic;color:var(--c-secondary);line-height:1.55}
+.bm-cta{background:var(--g-primary);border-radius:var(--r-md);padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:26px}
+.bm-cta-title{font-size:18px;font-weight:800;color:#fff;margin-bottom:4px}
+.bm-cta-sub{font-size:12.5px;color:rgba(255,255,255,.7)}
+.bm-cta-btn{background:#fff;color:var(--c-secondary);font-weight:700;font-size:13px;padding:11px 20px;border-radius:7px;border:none;cursor:pointer;font-family:var(--font-primary);white-space:nowrap}
+
+@media(max-width:980px){
+  .social-grid{grid-template-columns:1fr}
+  .bm-h1{font-size:24px}
+}
+
+/* ============================================================
+   09 — DESIGN TOKENS
    ============================================================ */
 #design-tokens{background:var(--c-primary-dark)}
 .tokens-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
@@ -1073,7 +1136,7 @@ input,textarea,select{font-family:inherit}
 .copy-code:hover{background:rgba(255,255,255,.18);color:#fff}
 
 /* ============================================================
-   09 — DO'S & DON'TS
+   10 — DO'S & DON'TS
    ============================================================ */
 #dos-donts{background:var(--c-surface)}
 .dos-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:44px}
@@ -1095,7 +1158,7 @@ input,textarea,select{font-family:inherit}
 .dont .dos-list li::before{content:'✕';font-weight:900;color:var(--c-error);flex-shrink:0;margin-top:1px}
 
 /* ============================================================
-   10 — BRAND SUMMARY
+   11 — BRAND SUMMARY
    ============================================================ */
 #brand-summary{background:var(--c-primary-dark);overflow:hidden}
 .summary-bg{
@@ -1372,13 +1435,15 @@ input,textarea,select{font-family:inherit}
 
     <div class="nav-section-label">Application</div>
     <button class="nav-item" onclick="gotoSection('website-app')"><span class="nav-num">07</span>Website Application</button>
-    <button class="nav-item" onclick="gotoSection('design-tokens')"><span class="nav-num">08</span>Design Tokens</button>
-    <button class="nav-item" onclick="gotoSection('dos-donts')"><span class="nav-num">09</span>Do's &amp; Don'ts</button>
-    <button class="nav-item" onclick="gotoSection('brand-summary')"><span class="nav-num">10</span>Brand Summary</button>
+    <button class="nav-item" onclick="gotoSection('social-media')"><span class="nav-num">08</span>Social Media</button>
+    <button class="nav-item nav-sub" onclick="gotoSection('blog-branding')"><span class="nav-num">—</span>Blog Posts</button>
+    <button class="nav-item" onclick="gotoSection('design-tokens')"><span class="nav-num">09</span>Design Tokens</button>
+    <button class="nav-item" onclick="gotoSection('dos-donts')"><span class="nav-num">10</span>Do's &amp; Don'ts</button>
+    <button class="nav-item" onclick="gotoSection('brand-summary')"><span class="nav-num">11</span>Brand Summary</button>
   </nav>
 
   <div class="sidebar-footer">
-    CRMJetty Brand Guidelines<br>Version 2025 · A Biztech Company
+    CRMJetty Brand Guidelines<br>Version Jun 2026 · A Biztech Company
   </div>
 </nav>
 
@@ -1413,7 +1478,7 @@ input,textarea,select{font-family:inherit}
   </div>
 
   <div class="cover-inner">
-    <p class="cover-eyebrow">Official Brand Document · CRMJetty 2025</p>
+    <p class="cover-eyebrow">Official Brand Document · CRMJetty Jun 2026</p>
 
     <!-- White logo for dark cover background -->
     <div class="cover-logo">
@@ -1426,7 +1491,7 @@ input,textarea,select{font-family:inherit}
     <div class="cover-meta">
       <div class="cover-meta-item">
         <span class="cover-meta-label">Version</span>
-        <span class="cover-meta-value">2025 Edition</span>
+        <span class="cover-meta-value">Jun 2026 Edition</span>
       </div>
       <div class="cover-meta-sep"></div>
       <div class="cover-meta-item">
@@ -2277,46 +2342,30 @@ input,textarea,select{font-family:inherit}
 
     <div class="photo-grid">
       <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#eef1ff,#e0e7ff)">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
-          <span>Hero — People & Business<br><em style="font-weight:400;font-size:10px;opacity:.7">Confident, collaborative, enterprise</em></span>
-        </div>
-        <div class="photo-overlay"><span>✓ People Photography</span></div>
+        <img class="photo-img" src="img/photo-people-hero.jpg" alt="Professional reviewing a laptop in a blue-lit enterprise data center">
+        <div class="photo-overlay"><span>✓ Hero — People &amp; Business<em>Confident, professional, enterprise tech settings</em></span></div>
       </div>
       <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#f8f9ff,#eef1ff)">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          <span>Product — Dashboard Screenshots<br><em style="font-weight:400;font-size:10px;opacity:.7">Clean UI, high resolution, branded</em></span>
-        </div>
-        <div class="photo-overlay"><span>✓ Product Shots</span></div>
+        <img class="photo-img" src="img/photo-product-dashboard.jpg" alt="Laptop displaying a clean analytics dashboard">
+        <div class="photo-overlay"><span>✓ Product — Dashboard Shots<em>Clean UI, high resolution, in-context devices</em></span></div>
       </div>
       <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#022484,#324fc3)">
-          <svg viewBox="0 0 24 24" style="opacity:.3"><rect x="2" y="2" width="20" height="20" rx="2"/></svg>
-          <span style="color:rgba(255,255,255,.7)">Case Study — Client Results<br><em style="font-weight:400;font-size:10px;opacity:.6">Overlay with brand gradient + stat callouts</em></span>
-        </div>
-        <div class="photo-overlay"><span>✓ Case Study Images</span></div>
+        <img class="photo-img" src="img/photo-case-study.jpg" alt="Team in a boardroom meeting, treated with brand gradient overlay">
+        <div class="photo-grad-overlay"></div>
+        <div class="photo-stat">+38%<small>Lead conversion</small></div>
+        <div class="photo-overlay"><span>✓ Case Study — Client Results<em>Brand gradient overlay + stat callouts</em></span></div>
       </div>
       <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#eef1ff,#dde4ff)">
-          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-          <span>Blog / Content Images<br><em style="font-weight:400;font-size:10px;opacity:.7">Illustrative, informative, clean bg</em></span>
-        </div>
-        <div class="photo-overlay"><span>✓ Blog Images</span></div>
+        <img class="photo-img" src="img/photo-blog-content.jpg" alt="Two professionals working at desks in a bright clean office">
+        <div class="photo-overlay"><span>✓ Blog / Content Images<em>Illustrative, informative, clean background</em></span></div>
       </div>
       <div class="photo-card">
-        <div class="photo-ph" style="background:#ffecec">
-          <svg viewBox="0 0 24 24" style="stroke:#ef4444"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <span style="color:#dc2626">Low quality, blurry<br><em style="font-weight:400;font-size:10px">Avoid unprofessional imagery</em></span>
-        </div>
-        <div class="photo-overlay" style="background:linear-gradient(to top,rgba(239,68,68,.5),transparent)"><span>✕ Avoid: Low Quality</span></div>
+        <img class="photo-img fx-blur" src="img/photo-blog-content.jpg" alt="Blurry, low-quality version of an office photo — example of what to avoid">
+        <div class="photo-overlay" style="background:linear-gradient(to top,rgba(239,68,68,.55),transparent)"><span>✕ Avoid: Low Quality<em>No blurry, pixelated, or unprofessional imagery</em></span></div>
       </div>
       <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#fde68a,#fbbf24)">
-          <svg viewBox="0 0 24 24" style="stroke:#92400e"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <span style="color:#92400e">Off-brand colours<br><em style="font-weight:400;font-size:10px">Do not use yellow/orange photo tints</em></span>
-        </div>
-        <div class="photo-overlay" style="background:linear-gradient(to top,rgba(239,68,68,.5),transparent)"><span>✕ Avoid: Off-brand Tones</span></div>
+        <img class="photo-img fx-warm" src="img/photo-avoid-warm.jpg" alt="Team photo with heavy orange-yellow colour cast — example of what to avoid">
+        <div class="photo-overlay" style="background:linear-gradient(to top,rgba(239,68,68,.55),transparent)"><span>✕ Avoid: Off-brand Tones<em>No yellow/orange tints — keep tones cool &amp; neutral</em></span></div>
       </div>
     </div>
 
@@ -2659,17 +2708,7 @@ input,textarea,select{font-family:inherit}
 
       <!-- Header -->
       <div class="mock-hdr">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:130px;height:auto">
-          <path fill="#324fc3" d="M138.82,69.42c-3.21-2.01-6.77-3.15-10.4-3.41,1.95,3.36,3.01,7.23,3.01,11.28v4.37l17.97,8.93v-2.07c0-7.82-3.95-14.96-10.58-19.1ZM131.43,92.32v42.37c0,4.22-1.21,8.29-3.35,11.78-.07.11-.13.21-.2.32-2.2,3.45-5.34,6.33-9.14,8.17l-40.61,19.73c1.74,2.61,4.04,4.85,6.8,6.58,3.66,2.3,7.79,3.45,11.94,3.45,3.35,0,6.71-.75,9.85-2.28l29.99-16.25c7.71-3.75,12.69-11.7,12.69-20.27v-44.67l-17.97-8.93Z"/>
-          <path fill="#022484" d="M101.12,77.82v-8.04c0-.18,0-.74-.62-1.13-.27-.16-.51-.22-.71-.22-.28,0-.49.1-.58.15l-45.26,21.98c-.45.22-.75.69-.75,1.2v57.4c0,.19,0,.74.63,1.13.62.39,1.12.15,1.28.07l7.2-3.5,12.04-5.84,21.2-10.3,4.82-2.34c.46-.22.75-.69.75-1.2v-15.57l9.11,4.52,1.49.74,10.6,5.27v5.04c0,8.57-4.98,16.53-12.69,20.27l-14.08,6.84-21.08,10.24-10.09,4.9c-3.14,1.53-6.51,2.28-9.86,2.28s-6.34-.68-9.29-2.03c-.91-.41-1.79-.89-2.65-1.42-6.63-4.14-10.58-11.28-10.58-19.1v-57.4c0-8.57,4.98-16.52,12.69-20.27l45.25-21.98c7.03-3.41,15.18-2.98,21.81,1.17,2.58,1.62,4.74,3.68,6.43,6.07,2.05,2.86,3.39,6.19,3.9,9.74.16,1.08.24,2.18.24,3.29v18.58l-10.6-5.27-1.49-.74-7.31-3.64-1.8-.89Z"/>
-          <path fill="#022484" d="M199.99,78.16c1.67-1.67,3.68-2.99,5.97-3.91,2.3-.92,4.86-1.39,7.62-1.39,2.92,0,5.65.6,8.14,1.77,2.49,1.17,4.75,2.94,6.73,5.25l.67.79,10.79-9.86-.6-.73c-3.05-3.72-6.88-6.58-11.39-8.5-4.49-1.91-9.55-2.88-15.04-2.88-4.89,0-9.51.81-13.72,2.42-4.22,1.61-7.94,3.93-11.08,6.91-3.13,2.98-5.6,6.52-7.33,10.54-1.73,4.01-2.61,8.48-2.61,13.27s.88,9.26,2.61,13.27c1.73,4.01,4.18,7.56,7.28,10.54,3.1,2.98,6.82,5.31,11.04,6.92,4.21,1.61,8.83,2.42,13.72,2.42,5.56,0,10.65-.98,15.14-2.92,4.51-1.95,8.34-4.82,11.39-8.54l.6-.73-10.79-9.86-.67.79c-1.97,2.31-4.24,4.09-6.73,5.3-2.48,1.2-5.22,1.81-8.13,1.81-2.76,0-5.32-.47-7.62-1.39-2.29-.92-4.3-2.24-5.97-3.91-1.67-1.67-2.99-3.68-3.91-5.97-.92-2.3-1.39-4.89-1.39-7.71s.47-5.41,1.39-7.71c.92-2.29,2.24-4.3,3.91-5.97Z"/>
-          <polygon fill="#022484" points="352.17 97.4 329.47 59.76 316.01 59.76 316.01 123.91 331.42 123.91 331.42 89.82 348.15 117.26 355.66 117.26 372.42 89.42 372.57 123.91 387.97 123.91 387.97 59.76 374.42 59.76 352.17 97.4"/>
-          <path fill="#324fc3" d="M423.96,106.36c0,5-4.07,9.07-9.07,9.07s-9.07-4.07-9.07-9.17v-1h-8.49v1.1c0,9.68,7.88,17.56,17.55,17.56s17.56-7.88,17.56-17.55v-42.99h-8.49v42.99Z"/>
-          <path fill="#324fc3" d="M471.8,108.94h-.54s-.3.45-.3.45c-1.07,1.65-2.45,3.03-4.09,4.12-5.25,3.48-12.22,3.05-17.03-1.01l29.7-19.59-.37-.78c-.45-.95-.97-1.88-1.54-2.76-.73-1.1-1.52-2.1-2.43-3.05-4.25-4.49-9.99-6.96-16.17-6.96-12.28,0-22.27,9.99-22.27,22.27,0,3.06.61,6.03,1.82,8.83.51,1.19,1.13,2.35,1.85,3.44.73,1.1,1.53,2.1,2.43,3.06,4.25,4.49,9.99,6.96,16.16,6.96,8.96,0,17-5.33,20.5-13.58l.16-.37-.15-.38q-.25-.65-7.74-.64ZM468.22,90.75l-22.8,15.04c-.41-1.34-.62-2.74-.62-4.16,0-7.85,6.39-14.24,14.24-14.24,3.36,0,6.62,1.19,9.18,3.36Z"/>
-          <path fill="#324fc3" d="M499.23,108.81h-.04c.04-.43.04-1.04.04-1.91v-19.46h12.03v-8.15h-6.93l-5.1,4.82v-20.76h-8.15v15.93h-7.71v8.15h7.71v21.37c0,8.33,6.77,15.1,15.1,15.1h5.11v-8.15h-5.11c-3.83,0-6.95-3.12-6.95-6.95Z"/>
-          <path fill="#324fc3" d="M531.1,108.82v-21.37h12.03v-8.15h-6.93l-5.1,4.82v-20.76h-8.15v15.93h-7.71v8.15h7.71v21.37c0,8.33,6.77,15.1,15.1,15.1h5.11v-8.15h-5.11c-3.83,0-6.95-3.12-6.95-6.95Z"/>
-          <polygon fill="#324fc3" points="587.28 79.34 571.44 113.34 555.6 79.34 546.55 79.34 566.92 123.05 558.24 141.67 567.29 141.67 596.33 79.34 587.28 79.34"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:130px;height:auto"><use href="#cj-logo-color"/></svg>
         <div class="mock-nav-links">
           <a href="#">Products</a>
           <a href="#">Solutions</a>
@@ -2696,11 +2735,11 @@ input,textarea,select{font-family:inherit}
             <button class="btn btn-primary">Request Free Demo
               <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;fill:none;stroke-width:2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
-            <button class="btn btn-outline btn-sm" style="height:42px;padding:0 20px">Watch Demo â–¶</button>
+            <button class="btn btn-outline btn-sm" style="height:42px;padding:0 20px">Watch Demo ▶</button>
           </div>
         </div>
         <div class="mock-img-ph">
-          <span style=”font-size:13px;font-weight:600;color:var(--c-text-muted);display:inline-flex;align-items:center;gap:6px”><svg viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”1.8” stroke-linecap=”round” stroke-linejoin=”round” style=”width:16px;height:16px;flex-shrink:0”><line x1=”18” y1=”20” x2=”18” y2=”10”/><line x1=”12” y1=”20” x2=”12” y2=”4”/><line x1=”6” y1=”20” x2=”6” y2=”14”/></svg>Dashboard Mockup</span>
+          <span style="font-size:13px;font-weight:600;color:var(--c-text-muted);display:inline-flex;align-items:center;gap:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex-shrink:0"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Dashboard Mockup</span>
         </div>
       </div>
     </div>
@@ -2752,10 +2791,212 @@ input,textarea,select{font-family:inherit}
 </section>
 
 <!-- ============================================================
-     08 — DESIGN TOKENS
+     08 — SOCIAL MEDIA BRANDING
+     ============================================================ -->
+<section class="slide" id="social-media">
+  <div class="section-num" aria-hidden="true">08</div>
+  <div class="slide-inner">
+    <h2 class="section-title">Social Media Branding</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle">Three approved post templates cover everything CRMJetty publishes — product announcements, blog promotion, and proof-point posts. Every post is instantly recognisable: navy-first, Inter only, one message, one CTA.</p>
+
+    <div class="social-grid">
+      <!-- Template 1: Announcement -->
+      <div class="social-tpl">
+        <div class="sp sp-announce">
+          <svg class="sp-logo" viewBox="0 0 653.62 231.94" aria-hidden="true"><use href="#cj-logo-white"/></svg>
+          <svg viewBox="2 27 178 178" style="position:absolute;right:-34px;top:30px;width:160px;height:160px;opacity:.12" aria-hidden="true"><use href="#cj-icon-white"/></svg>
+          <div class="sp-bottom">
+            <span class="sp-eyebrow">Product Update</span>
+            <p class="sp-headline">Build CRM Portals in Days — Not Months</p>
+            <span class="sp-cta">Learn More →</span>
+          </div>
+        </div>
+        <div class="sp-label">01 · Announcement / Launch<em>Brand gradient background · white logo · single CTA</em></div>
+      </div>
+
+      <!-- Template 2: Blog promo -->
+      <div class="social-tpl">
+        <div class="sp">
+          <img class="sp-img" src="img/photo-blog-content.jpg" alt="Professionals working in a bright office, used as a blog promo background">
+          <div class="sp-shade"></div>
+          <svg class="sp-logo" viewBox="0 0 653.62 231.94" aria-hidden="true"><use href="#cj-logo-white"/></svg>
+          <div class="sp-bottom">
+            <span class="sp-tag">Blog</span>
+            <p class="sp-headline">7 Ways a Customer Portal Cuts Support Costs</p>
+            <span class="sp-note">Read on crmjetty.com</span>
+          </div>
+        </div>
+        <div class="sp-label">02 · Blog / Content Promo<em>Photo + navy overlay · white logo · article title</em></div>
+      </div>
+
+      <!-- Template 3: Stat / proof point -->
+      <div class="social-tpl">
+        <div class="sp sp-stat">
+          <svg class="sp-logo" viewBox="0 0 653.62 231.94" aria-hidden="true"><use href="#cj-logo-color"/></svg>
+          <div class="sp-stat-center">
+            <span class="sp-stat-num">+38%</span>
+            <p class="sp-stat-sub">average lead conversion lift after launching a CRMJetty self-service portal</p>
+          </div>
+          <div class="sp-stat-foot"><span>#CRMJetty · #CustomerPortal</span><span>crmjetty.com</span></div>
+        </div>
+        <div class="sp-label">03 · Stat / Proof Point<em>White background · colour logo · one big number</em></div>
+      </div>
+    </div>
+
+    <div class="web-spec-grid">
+      <div class="web-spec-card">
+        <h4>Canvas Sizes</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>LinkedIn / FB</span> 1200 × 627 px · feed link posts</li>
+          <li class="ws-row"><span>Instagram</span> 1080 × 1080 px · square feed</li>
+          <li class="ws-row"><span>Story / Reel</span> 1080 × 1920 px · 9:16 vertical</li>
+          <li class="ws-row"><span>X (Twitter)</span> 1600 × 900 px · 16:9</li>
+          <li class="ws-row"><span>Export</span> PNG @2x · sRGB · under 5 MB</li>
+        </ul>
+      </div>
+      <div class="web-spec-card">
+        <h4>Logo Rules</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>Dark / Photo</span> White logo only</li>
+          <li class="ws-row"><span>Light BG</span> Full-colour logo</li>
+          <li class="ws-row"><span>Position</span> Top-left or bottom-right corner</li>
+          <li class="ws-row"><span>Min Height</span> 24 px on a 1080 px canvas</li>
+          <li class="ws-row"><span>Clear Space</span> Equal to the height of the "J"</li>
+        </ul>
+      </div>
+      <div class="web-spec-card">
+        <h4>Typography on Canvas</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>Typeface</span> Inter only — no decorative fonts</li>
+          <li class="ws-row"><span>Headline</span> 700–900 weight · max 8 words</li>
+          <li class="ws-row"><span>Support Copy</span> 400–500 weight · one short line</li>
+          <li class="ws-row"><span>Min Size</span> 28 px on a 1080 px canvas</li>
+          <li class="ws-row"><span>Case</span> Sentence case — never all-caps body</li>
+        </ul>
+      </div>
+      <div class="web-spec-card">
+        <h4>Colour &amp; Imagery</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>Backgrounds</span> Navy #0B1437, gradient, or white</li>
+          <li class="ws-row"><span>Photos</span> Follow Photography Style + 30–60% navy overlay</li>
+          <li class="ws-row"><span>Accent</span> One accent colour per post</li>
+          <li class="ws-row"><span>Avoid</span> Yellow/orange tints · busy backgrounds</li>
+        </ul>
+      </div>
+      <div class="web-spec-card">
+        <h4>Tone &amp; Caption</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>Voice</span> Professional, value-first — lead with the outcome</li>
+          <li class="ws-row"><span>Caption</span> ≤3 short lines before the fold</li>
+          <li class="ws-row"><span>Hashtags</span> 2–3 max · #CRMJetty + one topic tag</li>
+          <li class="ws-row"><span>Emoji</span> Sparingly · never in headlines</li>
+        </ul>
+      </div>
+      <div class="web-spec-card">
+        <h4>CTA Rules</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>One CTA</span> Single call-to-action per post</li>
+          <li class="ws-row"><span>Convention</span> Arrow style — "Learn More →"</li>
+          <li class="ws-row"><span>Links</span> In caption (LinkedIn/X) · in bio (Instagram)</li>
+          <li class="ws-row"><span>Tracking</span> UTM-tag every link</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     08.1 — BLOG POST BRANDING
+     ============================================================ -->
+<section class="slide" id="blog-branding">
+  <div class="section-num" aria-hidden="true">08</div>
+  <div class="slide-inner">
+    <h2 class="section-title">Blog Post Branding</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle">Every article on crmjetty.com/blog follows one editorial layout — a clean reading column, branded headings, one pull quote, and a single conversion banner.</p>
+
+    <div class="mockup-wrap">
+      <div class="mock-bar">
+        <div class="mock-dots">
+          <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+        </div>
+        <div class="mock-url">crmjetty.com/blog/self-service-portals</div>
+      </div>
+      <div class="blog-mock">
+        <article class="blog-article">
+          <span class="bm-cat">Customer Portals</span>
+          <h1 class="bm-h1">How Self-Service Portals Transform Enterprise Customer Experience</h1>
+          <div class="bm-byline">
+            <span class="bm-avatar">PS</span>
+            <div><strong>Priya Shah</strong><span>Jun 11, 2026 · 6 min read</span></div>
+          </div>
+          <div class="bm-feature">
+            <img src="img/photo-case-study.jpg" alt="Team reviewing portal results in a boardroom, treated with brand gradient overlay">
+            <div class="bm-feature-shade"></div>
+          </div>
+          <p class="bm-p">Enterprise customers no longer wait in a support queue. They expect answers instantly, on any device — and the companies that deliver them are pulling ahead on retention, cost, and customer satisfaction.</p>
+          <h2 class="bm-h2">Why enterprises are moving to self-service</h2>
+          <p class="bm-p">A branded portal connected directly to your CRM gives customers one place to raise tickets, track orders, and find answers — while every interaction stays synced to Salesforce, Dynamics 365, or SuiteCRM.</p>
+          <blockquote class="bm-quote">"Companies that deploy customer portals resolve cases 2.4× faster and cut support costs by a third."</blockquote>
+          <div class="bm-cta">
+            <div>
+              <p class="bm-cta-title">See CRMJetty in action</p>
+              <p class="bm-cta-sub">Launch a fully branded portal for your CRM — no code required.</p>
+            </div>
+            <button class="bm-cta-btn">Request a Demo →</button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="web-spec-grid">
+      <div class="web-spec-card">
+        <h4>Feature Image</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>Size</span> 1200 × 630 px — doubles as the OG/share image</li>
+          <li class="ws-row"><span>Style</span> Follows the Photography Style section</li>
+          <li class="ws-row"><span>Overlay</span> 30–60% brand gradient when text sits on the image</li>
+          <li class="ws-row"><span>Radius</span> 8 px in the article view</li>
+        </ul>
+      </div>
+      <div class="web-spec-card">
+        <h4>Typography</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>Title (H1)</span> Inter 800 · 32–40px · #022484</li>
+          <li class="ws-row"><span>Heading (H2)</span> Inter 700 · 21–28px · #324FC3</li>
+          <li class="ws-row"><span>Body</span> Inter 400 · 16–18px · line-height 1.7</li>
+          <li class="ws-row"><span>Links</span> #324FC3 · underline on hover</li>
+        </ul>
+      </div>
+      <div class="web-spec-card">
+        <h4>Article Structure</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>Above Title</span> Category tag · uppercase · pill style</li>
+          <li class="ws-row"><span>Byline</span> Author avatar + name · date · read time</li>
+          <li class="ws-row"><span>Intro</span> ≤3 sentences — state the payoff up front</li>
+          <li class="ws-row"><span>Headings</span> One H2 every 250–300 words</li>
+          <li class="ws-row"><span>Pull Quote</span> One per article · 4px blue left border</li>
+        </ul>
+      </div>
+      <div class="web-spec-card">
+        <h4>CTA &amp; Conversion</h4>
+        <ul class="ws-list">
+          <li class="ws-row"><span>Banner</span> One gradient CTA banner — mid-article or end</li>
+          <li class="ws-row"><span>Button</span> White button · navy text · arrow convention</li>
+          <li class="ws-row"><span>Internal Links</span> 2–3 per article to product/feature pages</li>
+          <li class="ws-row"><span>End of Post</span> Related articles as feat-card grid</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     09 — DESIGN TOKENS
      ============================================================ -->
 <section class="slide slide-dark" id="design-tokens" style="background:var(--c-primary-dark)">
-  <div class="section-num" aria-hidden="true">08</div>
+  <div class="section-num" aria-hidden="true">09</div>
   <div class="slide-inner">
     <h2 class="section-title">Design Tokens</h2>
     <p class="section-subtitle">Copy these CSS custom properties directly into your project stylesheet. They are the single source of truth for all visual decisions.</p>
@@ -2871,10 +3112,10 @@ input,textarea,select{font-family:inherit}
 </section>
 
 <!-- ============================================================
-     09 — DO'S AND DON'TS
+     10 — DO'S AND DON'TS
      ============================================================ -->
 <section class="slide" id="dos-donts" style="background:var(--c-surface)">
-  <div class="section-num" aria-hidden="true">09</div>
+  <div class="section-num" aria-hidden="true">10</div>
   <div class="slide-inner">
     <h2 class="section-title">Do's &amp; Don'ts</h2>
     <div class="section-divider"></div>
@@ -2882,8 +3123,8 @@ input,textarea,select{font-family:inherit}
 
     <!-- Row 1: Logo + Color -->
     <div class="dos-grid">
-      <div class=”dos-col do”>
-        <h3><svg viewBox=”0 0 20 20” style=”width:20px;height:20px;fill:none;stroke:var(--c-success);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0”><circle cx=”10” cy=”10” r=”9”/><polyline points=”6 10 9 13 14 7”/></svg> Logo — Do</h3>
+      <div class="dos-col do">
+        <h3><svg viewBox="0 0 20 20" style="width:20px;height:20px;fill:none;stroke:var(--c-success);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><circle cx="10" cy="10" r="9"/><polyline points="6 10 9 13 14 7"/></svg> Logo — Do</h3>
         <ul class="dos-list">
           <li>Always use the approved logo file from the official brand kit</li>
           <li>Maintain clear space equal to the height of the "J" on all sides</li>
@@ -2957,7 +3198,7 @@ input,textarea,select{font-family:inherit}
 </section>
 
 <!-- ============================================================
-     10 — BRAND SUMMARY
+     11 — BRAND SUMMARY
      ============================================================ -->
 <section class="slide slide-dark" id="brand-summary">
   <div class="summary-bg"></div>
@@ -3050,7 +3291,7 @@ input,textarea,select{font-family:inherit}
 (function () {
   'use strict';
 
-  /* â”€â”€ Section IDs in order â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Section IDs in order ─────────────────────────── */
   const SECTIONS = [
     'cover', 'brand-overview', 'brand-audience',
     'logo-primary', 'logo-backgrounds', 'logo-mono', 'logo-misuse', 'logo-favicon',
@@ -3058,13 +3299,13 @@ input,textarea,select{font-family:inherit}
     'typography-primary', 'typography-scale',
     'iconography', 'photography',
     'buttons', 'form-elements', 'cards-section',
-    'website-app', 'design-tokens',
+    'website-app', 'social-media', 'blog-branding', 'design-tokens',
     'dos-donts', 'brand-summary'
   ];
 
   let currentIdx = 0;
 
-  /* â”€â”€ Scroll to section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Scroll to section ─────────────────────────────── */
   window.gotoSection = function (id) {
     const el = document.getElementById(id);
     if (el) {
@@ -3073,13 +3314,13 @@ input,textarea,select{font-family:inherit}
     }
   };
 
-  /* â”€â”€ Navigate by delta â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Navigate by delta ─────────────────────────────── */
   window.navigateSlide = function (delta) {
     const next = Math.max(0, Math.min(SECTIONS.length - 1, currentIdx + delta));
     window.gotoSection(SECTIONS[next]);
   };
 
-  /* â”€â”€ Copy HEX colour â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Copy HEX colour ───────────────────────────────── */
   window.copyColor = function (hex, card) {
     navigator.clipboard.writeText(hex).then(() => {
       const btn = card.querySelector('.copy-btn');
@@ -3097,7 +3338,7 @@ input,textarea,select{font-family:inherit}
     });
   };
 
-  /* â”€â”€ Copy code block â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Copy code block ───────────────────────────────── */
   window.copyCode = function (btn) {
     const pre = btn.nextElementSibling;
     const text = pre ? pre.textContent : '';
@@ -3116,7 +3357,7 @@ input,textarea,select{font-family:inherit}
     });
   };
 
-  /* â”€â”€ Intersection Observer → active nav + progress â”€â”€ */
+  /* ── Intersection Observer → active nav + progress ── */
   const navItems = document.querySelectorAll('.nav-item');
   const progressFill = document.getElementById('progressFill');
   const prevBtn = document.getElementById('prevBtn');
@@ -3152,7 +3393,7 @@ input,textarea,select{font-family:inherit}
     if (el) observer.observe(el);
   });
 
-  /* â”€â”€ Keyboard navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Keyboard navigation ───────────────────────────── */
   document.addEventListener('keydown', (e) => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
     if (e.key === 'ArrowDown' || e.key === 'PageDown') {
@@ -3170,7 +3411,7 @@ input,textarea,select{font-family:inherit}
     }
   });
 
-  /* â”€â”€ Mobile sidebar toggle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Mobile sidebar toggle ─────────────────────────── */
   const sidebar = document.getElementById('sidebar');
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const overlay = document.getElementById('sidebarOverlay');
@@ -3190,10 +3431,10 @@ input,textarea,select{font-family:inherit}
     overlay.addEventListener('click', closeMobileNav);
   }
 
-  /* â”€â”€ Initial state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Initial state ─────────────────────────────────── */
   updateNav('cover');
 
-  /* â”€â”€ Smooth entrance animation for value cards â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Smooth entrance animation for value cards ─────── */
   const animItems = document.querySelectorAll('.value-card, .feat-card, .audience-card, .summary-touch');
   const animObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
