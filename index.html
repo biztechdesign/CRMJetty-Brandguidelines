@@ -577,6 +577,15 @@ input,textarea,select{font-family:inherit}
   border-radius:0 9px 9px 9px;
   padding:6px 14px;font-size:13px;color:var(--c-text-light);min-width:280px;
 }
+.browser-tab-mock.dark{
+  background:#35363A;border-color:#5f6368;
+  color:#e8eaed;
+}
+.browser-tab-mock.dark .tab-fav{border-radius:3px}
+.browser-body.dark{
+  background:#292A2D;border-color:#5f6368;color:#BDC1C6;
+}
+.tab-preview-label{font-size:12px;font-weight:600;color:var(--c-text-muted);margin-bottom:8px;letter-spacing:.3px}
 
 /* ============================================================
    03 — BRAND COLORS
@@ -1767,14 +1776,28 @@ input,textarea,select{font-family:inherit}
 
     <!-- Browser tab mockup -->
     <div style="margin-top:36px">
-      <p style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:12px">Browser Tab Preview</p>
-      <div style="display:inline-flex;flex-direction:column">
-        <div class="browser-tab-mock">
-          <div class="tab-fav"><svg xmlns="http://www.w3.org/2000/svg" viewBox="2 27 178 178" style="width:16px;height:16px;display:block"><rect x="2" y="27" width="178" height="178" fill="#022484"/><path fill="#fff" d="M138.82,69.42c-3.21-2.01-6.77-3.15-10.4-3.41,1.95,3.36,3.01,7.23,3.01,11.28v4.37l17.97,8.93v-2.07c0-7.82-3.95-14.96-10.58-19.1ZM131.43,92.32v42.37c0,4.22-1.21,8.29-3.35,11.78-.07.11-.13.21-.2.32-2.2,3.45-5.34,6.33-9.14,8.17l-40.61,19.73c1.74,2.61,4.04,4.85,6.8,6.58,3.66,2.3,7.79,3.45,11.94,3.45,3.35,0,6.71-.75,9.85-2.28l29.99-16.25c7.71-3.75,12.69-11.7,12.69-20.27v-44.67l-17.97-8.93Z"/><path fill="#fff" d="M101.12,77.82v-8.04c0-.18,0-.74-.62-1.13-.27-.16-.51-.22-.71-.22-.28,0-.49.1-.58.15l-45.26,21.98c-.45.22-.75.69-.75,1.2v57.4c0,.19,0,.74.63,1.13.62.39,1.12.15,1.28.07l7.2-3.5,12.04-5.84,21.2-10.3,4.82-2.34c.46-.22.75-.69.75-1.2v-15.57l9.11,4.52,1.49.74,10.6,5.27v5.04c0,8.57-4.98,16.53-12.69,20.27l-14.08,6.84-21.08,10.24-10.09,4.9c-3.14,1.53-6.51,2.28-9.86,2.28s-6.34-.68-9.29-2.03c-.91-.41-1.79-.89-2.65-1.42-6.63-4.14-10.58-11.28-10.58-19.1v-57.4c0-8.57,4.98-16.52,12.69-20.27l45.25-21.98c7.03-3.41,15.18-2.98,21.81,1.17,2.58,1.62,4.74,3.68,6.43,6.07,2.05,2.86,3.39,6.19,3.9,9.74.16,1.08.24,2.18.24,3.29v18.58l-10.6-5.27-1.49-.74-7.31-3.64-1.8-.89Z"/></svg></div>
-          CRMJetty — Customer Portal
-          <span style="color:var(--c-text-muted);margin-left:4px">✕</span>
+      <p style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:20px">Browser Tab Preview</p>
+      <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start">
+        <!-- Light mode -->
+        <div style="display:inline-flex;flex-direction:column">
+          <p class="tab-preview-label">Light Mode</p>
+          <div class="browser-tab-mock">
+            <div class="tab-fav"><svg xmlns="http://www.w3.org/2000/svg" viewBox="2 27 178 178" style="width:16px;height:16px;display:block"><rect x="2" y="27" width="178" height="178" fill="#022484"/><path fill="#fff" d="M138.82,69.42c-3.21-2.01-6.77-3.15-10.4-3.41,1.95,3.36,3.01,7.23,3.01,11.28v4.37l17.97,8.93v-2.07c0-7.82-3.95-14.96-10.58-19.1ZM131.43,92.32v42.37c0,4.22-1.21,8.29-3.35,11.78-.07.11-.13.21-.2.32-2.2,3.45-5.34,6.33-9.14,8.17l-40.61,19.73c1.74,2.61,4.04,4.85,6.8,6.58,3.66,2.3,7.79,3.45,11.94,3.45,3.35,0,6.71-.75,9.85-2.28l29.99-16.25c7.71-3.75,12.69-11.7,12.69-20.27v-44.67l-17.97-8.93Z"/><path fill="#fff" d="M101.12,77.82v-8.04c0-.18,0-.74-.62-1.13-.27-.16-.51-.22-.71-.22-.28,0-.49.1-.58.15l-45.26,21.98c-.45.22-.75.69-.75,1.2v57.4c0,.19,0,.74.63,1.13.62.39,1.12.15,1.28.07l7.2-3.5,12.04-5.84,21.2-10.3,4.82-2.34c.46-.22.75-.69.75-1.2v-15.57l9.11,4.52,1.49.74,10.6,5.27v5.04c0,8.57-4.98,16.53-12.69,20.27l-14.08,6.84-21.08,10.24-10.09,4.9c-3.14,1.53-6.51,2.28-9.86,2.28s-6.34-.68-9.29-2.03c-.91-.41-1.79-.89-2.65-1.42-6.63-4.14-10.58-11.28-10.58-19.1v-57.4c0-8.57,4.98-16.52,12.69-20.27l45.25-21.98c7.03-3.41,15.18-2.98,21.81,1.17,2.58,1.62,4.74,3.68,6.43,6.07,2.05,2.86,3.39,6.19,3.9,9.74.16,1.08.24,2.18.24,3.29v18.58l-10.6-5.27-1.49-.74-7.31-3.64-1.8-.89Z"/></svg></div>
+            CRMJetty — Customer Portal
+            <span style="color:var(--c-text-muted);margin-left:4px">✕</span>
+          </div>
+          <div class="browser-body">crmjetty.com/customer-portal</div>
         </div>
-        <div class="browser-body">crmjetty.com/customer-portal</div>
+        <!-- Dark mode -->
+        <div style="display:inline-flex;flex-direction:column">
+          <p class="tab-preview-label">Dark Mode</p>
+          <div class="browser-tab-mock dark">
+            <div class="tab-fav"><svg xmlns="http://www.w3.org/2000/svg" viewBox="2 27 178 178" style="width:16px;height:16px;display:block"><rect x="2" y="27" width="178" height="178" fill="#fff"/><path fill="#022484" d="M138.82,69.42c-3.21-2.01-6.77-3.15-10.4-3.41,1.95,3.36,3.01,7.23,3.01,11.28v4.37l17.97,8.93v-2.07c0-7.82-3.95-14.96-10.58-19.1ZM131.43,92.32v42.37c0,4.22-1.21,8.29-3.35,11.78-.07.11-.13.21-.2.32-2.2,3.45-5.34,6.33-9.14,8.17l-40.61,19.73c1.74,2.61,4.04,4.85,6.8,6.58,3.66,2.3,7.79,3.45,11.94,3.45,3.35,0,6.71-.75,9.85-2.28l29.99-16.25c7.71-3.75,12.69-11.7,12.69-20.27v-44.67l-17.97-8.93Z"/><path fill="#022484" d="M101.12,77.82v-8.04c0-.18,0-.74-.62-1.13-.27-.16-.51-.22-.71-.22-.28,0-.49.1-.58.15l-45.26,21.98c-.45.22-.75.69-.75,1.2v57.4c0,.19,0,.74.63,1.13.62.39,1.12.15,1.28.07l7.2-3.5,12.04-5.84,21.2-10.3,4.82-2.34c.46-.22.75-.69.75-1.2v-15.57l9.11,4.52,1.49.74,10.6,5.27v5.04c0,8.57-4.98,16.53-12.69,20.27l-14.08,6.84-21.08,10.24-10.09,4.9c-3.14,1.53-6.51,2.28-9.86,2.28s-6.34-.68-9.29-2.03c-.91-.41-1.79-.89-2.65-1.42-6.63-4.14-10.58-11.28-10.58-19.1v-57.4c0-8.57,4.98-16.52,12.69-20.27l45.25-21.98c7.03-3.41,15.18-2.98,21.81,1.17,2.58,1.62,4.74,3.68,6.43,6.07,2.05,2.86,3.39,6.19,3.9,9.74.16,1.08.24,2.18.24,3.29v18.58l-10.6-5.27-1.49-.74-7.31-3.64-1.8-.89Z"/></svg></div>
+            CRMJetty — Customer Portal
+            <span style="color:#5f6368;margin-left:4px">✕</span>
+          </div>
+          <div class="browser-body dark">crmjetty.com/customer-portal</div>
+        </div>
       </div>
     </div>
   </div>
