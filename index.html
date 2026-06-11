@@ -566,7 +566,9 @@ input,textarea,select{font-family:inherit}
 .browser-tab-mock{
   background:var(--c-surface);border-radius:9px 9px 0 0;
   padding:9px 18px;display:inline-flex;align-items:center;gap:7px;
-  font-size:13px;color:var(--c-text-secondary);border:1px solid var(--c-border);border-bottom:none;
+  font-size:13px;color:var(--c-text-secondary);
+  border:1px solid var(--c-border);border-bottom:none;
+  position:relative;z-index:1;margin-bottom:-1px;
 }
 .tab-fav{
   width:16px;height:16px;border-radius:3px;
@@ -574,7 +576,7 @@ input,textarea,select{font-family:inherit}
 }
 .browser-body{
   background:#fff;border:1px solid var(--c-border);
-  border-radius:0 9px 9px 9px;
+  border-radius:0 0 9px 9px;
   padding:6px 14px;font-size:13px;color:var(--c-text-light);min-width:280px;
 }
 .browser-tab-mock.dark{
