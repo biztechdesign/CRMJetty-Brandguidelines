@@ -466,7 +466,7 @@ input,textarea,select{font-family:inherit}
 /* Logo backgrounds */
 #logo-backgrounds{background:var(--c-surface)}
 .logo-bg-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
+  display:grid;grid-template-columns:repeat(4,1fr);
   gap:18px;margin-top:44px;
 }
 .logo-bg-card{
@@ -498,11 +498,13 @@ input,textarea,select{font-family:inherit}
 .lb-gradient .bg-tag{color:rgba(255,255,255,.45)}
 .lb-invalid{background:#e11d48;opacity:.88}
 .lb-invalid .bg-tag{color:rgba(255,255,255,.7)}
+.lb-pure-black{background:#232323}
+.lb-pure-black .bg-tag{color:rgba(255,255,255,.45)}
 
 /* Logo misuse */
 #logo-misuse{background:var(--c-surface)}
 .misuse-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(3,1fr);
   gap:18px;margin-top:44px;
 }
 .misuse-card{
@@ -547,12 +549,12 @@ input,textarea,select{font-family:inherit}
 .fav-groups{display:flex;flex-direction:column;gap:32px;margin-top:36px}
 .fav-group-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);margin:0 0 14px;display:flex;align-items:center;gap:10px}
 .fav-group-label::after{content:'';flex:1;height:1px;background:var(--c-border)}
-.favicon-row{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-end;margin-top:0}
+.favicon-row{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;margin-top:0}
 .fav-card{
   background:var(--c-surface);border:1px solid var(--c-border);
   border-radius:var(--r-lg);padding:28px 20px 20px;
   display:flex;flex-direction:column;align-items:center;gap:12px;
-  min-width:110px;
+  min-width:150px;
 }
 .fav-preview{
   background:var(--g-primary);
@@ -560,7 +562,7 @@ input,textarea,select{font-family:inherit}
   flex-shrink:0;overflow:hidden;
 }
 .fav-size{font-size:13px;font-weight:700;color:var(--c-text-muted);letter-spacing:.3px}
-.fav-use{font-size:12px;color:var(--c-text-light);text-align:center;max-width:80px;line-height:1.4}
+.fav-use{font-size:12px;color:var(--c-text-light);text-align:center;max-width:120px;line-height:1.4}
 .browser-tab-row{margin-top:36px;display:flex;align-items:center;gap:0}
 .browser-tab-mock{
   background:#ebebeb;border-radius:9px 9px 0 0;
@@ -568,8 +570,8 @@ input,textarea,select{font-family:inherit}
   font-size:13px;color:#555;border:1px solid #d5d5d5;border-bottom:none;
 }
 .tab-fav{
-  width:14px;height:14px;border-radius:3px;
-  background:var(--g-primary);flex-shrink:0;
+  width:16px;height:16px;border-radius:3px;
+  flex-shrink:0;overflow:hidden;
 }
 .browser-body{
   background:#fff;border:1px solid #d5d5d5;
@@ -581,7 +583,14 @@ input,textarea,select{font-family:inherit}
    03 — BRAND COLORS
    ============================================================ */
 #colors-primary{background:var(--c-surface)}
-#colors-secondary{background:#fff}
+.cp-sub-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);margin:36px 0 0;display:flex;align-items:center;gap:10px}
+.cp-sub-label:first-of-type{margin-top:32px}
+.cp-sub-label::after{content:'';flex:1;height:1px;background:var(--c-border)}
+.text-ref-table{width:100%;border-collapse:collapse;margin-top:16px}
+.text-ref-table th{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--c-text-muted);padding:8px 12px;border-bottom:2px solid var(--c-border);text-align:left}
+.text-ref-table td{padding:10px 12px;border-bottom:1px solid var(--c-border);font-size:13px;color:var(--c-text);vertical-align:middle}
+.text-ref-table td.code{font-family:monospace;font-size:12px;color:var(--c-primary)}
+.tc-dot{width:18px;height:18px;border-radius:50%;display:inline-block;vertical-align:middle}
 
 .color-row{
   display:grid;grid-template-columns:repeat(5,1fr);
@@ -617,7 +626,7 @@ input,textarea,select{font-family:inherit}
 }
 
 .semantic-row{
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(5,1fr);
   gap:18px;margin-top:20px;
 }
 
@@ -691,6 +700,15 @@ input,textarea,select{font-family:inherit}
 .typo-table .code{color:var(--c-text-secondary)}
 .typo-table th.code{color:var(--c-text-muted)}
 .typo-table .preview-cell{max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Typography Scale rows */
+.type-scale-group{margin-bottom:44px}
+.type-scale-group:last-child{margin-bottom:0}
+.type-row{display:flex;align-items:baseline;border-bottom:1px solid var(--c-border);padding:16px 0;gap:24px}
+.type-meta{width:110px;flex-shrink:0}
+.type-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);display:block}
+.type-spec{font-size:11px;color:var(--c-text-light);margin-top:4px;display:block}
+.type-preview{flex:1;min-width:0}
 
 /* ============================================================
    05 — GRAPHIC ELEMENTS
@@ -1164,7 +1182,7 @@ input,textarea,select{font-family:inherit}
   .mobile-menu-btn{display:flex}
   .overview-grid,.logo-showcase,.form-demo-grid,.dos-grid,.tokens-grid{grid-template-columns:1fr}
   .misuse-grid{grid-template-columns:repeat(2,1fr)}
-  .logo-bg-grid,.mono-grid,.audience-grid,.cards-grid{grid-template-columns:repeat(2,1fr)}
+  .logo-bg-grid,.audience-grid,.cards-grid{grid-template-columns:repeat(2,1fr)}
   .color-row{grid-template-columns:repeat(2,1fr)}
   .icon-grid{grid-template-columns:repeat(4,1fr)}
   .web-spec-grid{grid-template-columns:1fr}
@@ -1176,7 +1194,7 @@ input,textarea,select{font-family:inherit}
 @media(max-width:640px){
   .cover-headline{font-size:40px}
   .section-title{font-size:30px}
-  .logo-bg-grid,.mono-grid,.audience-grid,.misuse-grid,.cards-grid{grid-template-columns:1fr}
+  .logo-bg-grid,.audience-grid,.misuse-grid,.cards-grid{grid-template-columns:1fr}
   .gradient-row,.semantic-row{grid-template-columns:1fr 1fr}
   .summary-touch-grid{grid-template-columns:1fr}
   .favicon-row{justify-content:center}
@@ -1350,22 +1368,18 @@ input,textarea,select{font-family:inherit}
     <div class="nav-section-label">Brand Identity</div>
     <button class="nav-item active" onclick="gotoSection('cover')"><span class="nav-num">00</span>Cover</button>
     <button class="nav-item" onclick="gotoSection('brand-overview')"><span class="nav-num">01</span>Brand Overview</button>
-    <button class="nav-item nav-sub" onclick="gotoSection('brand-audience')"><span class="nav-num">—</span>Target Audience</button>
 
     <div class="nav-section-label">Visual System</div>
     <button class="nav-item" onclick="gotoSection('logo-primary')"><span class="nav-num">02</span>Logo Guidelines</button>
     <button class="nav-item nav-sub" onclick="gotoSection('logo-backgrounds')"><span class="nav-num">—</span>Logo Backgrounds</button>
-    <button class="nav-item nav-sub" onclick="gotoSection('logo-mono')"><span class="nav-num">—</span>Monochrome</button>
     <button class="nav-item nav-sub" onclick="gotoSection('logo-misuse')"><span class="nav-num">—</span>Logo Misuse</button>
     <button class="nav-item nav-sub" onclick="gotoSection('logo-favicon')"><span class="nav-num">—</span>Favicon &amp; App Icon</button>
-    <button class="nav-item" onclick="gotoSection('colors-primary')"><span class="nav-num">03</span>Brand Colors</button>
-    <button class="nav-item nav-sub" onclick="gotoSection('colors-secondary')"><span class="nav-num">—</span>Secondary &amp; Gradients</button>
+    <button class="nav-item" onclick="gotoSection('colors-primary')"><span class="nav-num">03</span>Color Palette</button>
     <button class="nav-item" onclick="gotoSection('typography-primary')"><span class="nav-num">04</span>Typography</button>
     <button class="nav-item nav-sub" onclick="gotoSection('typography-scale')"><span class="nav-num">—</span>Type Scale</button>
 
     <div class="nav-section-label">UI System</div>
     <button class="nav-item" onclick="gotoSection('iconography')"><span class="nav-num">05</span>Graphic Elements</button>
-    <button class="nav-item nav-sub" onclick="gotoSection('photography')"><span class="nav-num">—</span>Photography</button>
     <button class="nav-item" onclick="gotoSection('buttons')"><span class="nav-num">06</span>Design Elements</button>
     <button class="nav-item nav-sub" onclick="gotoSection('form-elements')"><span class="nav-num">—</span>Form Elements</button>
     <button class="nav-item nav-sub" onclick="gotoSection('cards-section')"><span class="nav-num">—</span>Cards &amp; Components</button>
@@ -1413,7 +1427,7 @@ input,textarea,select{font-family:inherit}
   </div>
 
   <div class="cover-inner">
-    <p class="cover-eyebrow">Official Brand Document · CRMJetty 2025</p>
+    <p class="cover-eyebrow">Official Brand Document · June 2026</p>
 
     <!-- White logo for dark cover background -->
     <div class="cover-logo">
@@ -1426,7 +1440,7 @@ input,textarea,select{font-family:inherit}
     <div class="cover-meta">
       <div class="cover-meta-item">
         <span class="cover-meta-label">Version</span>
-        <span class="cover-meta-value">2025 Edition</span>
+        <span class="cover-meta-value">June 2026</span>
       </div>
       <div class="cover-meta-sep"></div>
       <div class="cover-meta-item">
@@ -1532,31 +1546,6 @@ input,textarea,select{font-family:inherit}
   </div>
 </section>
 
-<!-- Target Audience -->
-<section class="slide slide-dark" id="brand-audience" style="background:var(--c-primary-dark)">
-  <div class="section-num" aria-hidden="true">01</div>
-  <div class="slide-inner">
-    <h2 class="section-title">Target Audience</h2>
-    <p class="section-subtitle">CRMJetty serves a diverse ecosystem of enterprise buyers, technical teams, and end-users across industries.</p>
-    <div class="audience-grid">
-      <div class="audience-card">
-        <div class="audience-num">01</div>
-        <h3>Business Decision-Makers</h3>
-        <p>C-suite executives, VP of Sales &amp; Operations, IT Directors seeking scalable CRM portal solutions to improve customer and partner relationships.</p>
-      </div>
-      <div class="audience-card">
-        <div class="audience-num">02</div>
-        <h3>CRM Administrators &amp; Developers</h3>
-        <p>Technical users who implement, customise, and maintain Salesforce, SuiteCRM, or Dynamics 365 portals. Value documentation, APIs, and integration depth.</p>
-      </div>
-      <div class="audience-card">
-        <div class="audience-num">03</div>
-        <h3>End Portal Users</h3>
-        <p>Customers, vendors, and partners who interact with the portal daily — need intuitive UX, fast access to data, and reliable self-service tools.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============================================================
      02 — LOGO GUIDELINES
@@ -1652,56 +1641,22 @@ input,textarea,select{font-family:inherit}
         <span class="bg-tag">Gradient ✓</span>
       </div>
 
-      <!-- Invalid — red bg -->
-      <div class="logo-bg-card lb-invalid">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto;opacity:.45"><use href="#cj-logo-color"/></svg>
-        <span class="avoid-tag">✕ AVOID</span>
-        <span class="bg-tag">Clashing Colour</span>
+      <!-- Black Version -->
+      <div class="logo-bg-card lb-white">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-black"/></svg>
+        <span class="bg-tag">Black Version ✓</span>
+      </div>
+
+      <!-- White Version -->
+      <div class="logo-bg-card lb-pure-black">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:190px;height:auto"><use href="#cj-logo-white"/></svg>
+        <span class="bg-tag">White Version ✓</span>
       </div>
     </div>
 
     <div style="margin-top:28px;padding:18px 22px;background:#fff;border:1px solid var(--c-border);border-radius:var(--r-md);display:flex;gap:32px;flex-wrap:wrap">
-      <div style="font-size:12px;color:var(--c-text-muted)"><strong style="color:var(--c-success)">✓ Approved:</strong> White, light grey, surface blue, dark navy, brand blue, gradient</div>
+      <div style="font-size:12px;color:var(--c-text-muted)"><strong style="color:var(--c-success)">✓ Approved:</strong> Full-colour on white/light · White version on dark/navy/blue/gradient · Black version on white/light</div>
       <div style="font-size:12px;color:var(--c-text-muted)"><strong style="color:var(--c-error)">✕ Avoid:</strong> Red, orange, yellow, busy photography without overlay, very low-contrast backgrounds</div>
-    </div>
-  </div>
-</section>
-
-<!-- 2.3 Monochrome -->
-<section class="slide" id="logo-mono">
-  <div class="section-num" aria-hidden="true">02</div>
-  <div class="slide-inner">
-    <h2 class="section-title">Monochrome Versions</h2>
-    <div class="section-divider"></div>
-    <p class="section-subtitle">Use monochrome versions when full colour reproduction is not possible — e.g. single-colour print, embroidery, or embossed materials.</p>
-
-    <div class="mono-grid">
-      <!-- Black -->
-      <div class="mono-card mono-white-bg">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:220px;height:auto"><use href="#cj-logo-black"/></svg>
-        <span class="mono-label" style="color:var(--c-text-muted)">Black Version</span>
-        <span style="font-size:11px;color:var(--c-text-light)">Use on white or light surfaces only</span>
-      </div>
-
-      <!-- White -->
-      <div class="mono-card mono-black-bg">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:220px;height:auto"><use href="#cj-logo-white"/></svg>
-        <span class="mono-label" style="color:rgba(255,255,255,0.45)">White Version</span>
-        <span style="font-size:11px;color:rgba(255,255,255,0.3)">Use on dark surfaces only</span>
-      </div>
-
-      <!-- Grayscale -->
-      <div class="mono-card mono-gray-bg">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:220px;height:auto"><use href="#cj-logo-gray"/></svg>
-        <span class="mono-label">Grayscale Version</span>
-        <span style="font-size:11px;color:var(--c-text-light)">For greyscale or B&amp;W documents</span>
-      </div>
-    </div>
-
-    <div style="margin-top:28px;background:#fff;border:1px solid var(--c-border);border-radius:var(--r-md);padding:20px 24px">
-      <p style="font-size:12.5px;color:var(--c-text-secondary);line-height:1.7">
-        <strong style="color:var(--c-primary)">When to use monochrome:</strong> Single-colour screen printing, laser engraving, embossing, fax documents, newspaper ads, legal / compliance documents, and any medium where full-colour reproduction is unavailable or unreliable.
-      </p>
     </div>
   </div>
 </section>
@@ -1779,6 +1734,29 @@ input,textarea,select{font-family:inherit}
         </div>
         <span class="misuse-badge">No Old Logo</span>
         <p class="misuse-desc">Never use outdated, legacy, or unauthorised logo versions</p>
+      </div>
+
+      <div class="misuse-card">
+        <div class="misuse-visual" style="background:#e11d48;border-radius:8px;width:100%;padding:12px">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:130px;height:auto;opacity:0.4"><use href="#cj-logo-color"/></svg>
+        </div>
+        <span class="misuse-badge">Clashing Colour</span>
+        <p class="misuse-desc">Never place the logo on red, orange, or other high-contrast clashing backgrounds</p>
+      </div>
+    </div>
+
+    <!-- Approved Monochrome Version -->
+    <p class="fav-group-label" style="margin-top:44px">Approved Monochrome Version</p>
+    <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-top:16px">
+      <div class="mono-card mono-gray-bg" style="display:inline-flex;flex-direction:column;align-items:center;gap:12px;padding:28px 32px;border-radius:12px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.62 231.94" style="width:200px;height:auto"><use href="#cj-logo-gray"/></svg>
+        <span class="mono-label">Grayscale Version</span>
+        <span style="font-size:11px;color:var(--c-text-light)">For greyscale or B&amp;W documents</span>
+      </div>
+      <div style="flex:1;min-width:220px;background:#fff;border:1px solid var(--c-border);border-radius:var(--r-md);padding:20px 24px;align-self:center">
+        <p style="font-size:12.5px;color:var(--c-text-secondary);line-height:1.7">
+          <strong style="color:var(--c-primary)">When to use:</strong> Single-colour screen printing, laser engraving, embossing, fax documents, newspaper ads, legal / compliance documents, and any medium where full-colour reproduction is unavailable or unreliable.
+        </p>
       </div>
     </div>
   </div>
@@ -1889,7 +1867,7 @@ input,textarea,select{font-family:inherit}
       <p style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:12px">Browser Tab Preview</p>
       <div style="display:inline-flex;flex-direction:column">
         <div class="browser-tab-mock">
-          <div class="tab-fav"></div>
+          <div class="tab-fav"><svg xmlns="http://www.w3.org/2000/svg" viewBox="2 27 178 178" style="width:16px;height:16px;display:block"><rect x="2" y="27" width="178" height="178" fill="#022484"/><path fill="#fff" d="M138.82,69.42c-3.21-2.01-6.77-3.15-10.4-3.41,1.95,3.36,3.01,7.23,3.01,11.28v4.37l17.97,8.93v-2.07c0-7.82-3.95-14.96-10.58-19.1ZM131.43,92.32v42.37c0,4.22-1.21,8.29-3.35,11.78-.07.11-.13.21-.2.32-2.2,3.45-5.34,6.33-9.14,8.17l-40.61,19.73c1.74,2.61,4.04,4.85,6.8,6.58,3.66,2.3,7.79,3.45,11.94,3.45,3.35,0,6.71-.75,9.85-2.28l29.99-16.25c7.71-3.75,12.69-11.7,12.69-20.27v-44.67l-17.97-8.93Z"/><path fill="#fff" d="M101.12,77.82v-8.04c0-.18,0-.74-.62-1.13-.27-.16-.51-.22-.71-.22-.28,0-.49.1-.58.15l-45.26,21.98c-.45.22-.75.69-.75,1.2v57.4c0,.19,0,.74.63,1.13.62.39,1.12.15,1.28.07l7.2-3.5,12.04-5.84,21.2-10.3,4.82-2.34c.46-.22.75-.69.75-1.2v-15.57l9.11,4.52,1.49.74,10.6,5.27v5.04c0,8.57-4.98,16.53-12.69,20.27l-14.08,6.84-21.08,10.24-10.09,4.9c-3.14,1.53-6.51,2.28-9.86,2.28s-6.34-.68-9.29-2.03c-.91-.41-1.79-.89-2.65-1.42-6.63-4.14-10.58-11.28-10.58-19.1v-57.4c0-8.57,4.98-16.52,12.69-20.27l45.25-21.98c7.03-3.41,15.18-2.98,21.81,1.17,2.58,1.62,4.74,3.68,6.43,6.07,2.05,2.86,3.39,6.19,3.9,9.74.16,1.08.24,2.18.24,3.29v18.58l-10.6-5.27-1.49-.74-7.31-3.64-1.8-.89Z"/></svg></div>
           CRMJetty — Customer Portal
           <span style="color:#aaa;margin-left:4px">✕</span>
         </div>
@@ -1905,11 +1883,12 @@ input,textarea,select{font-family:inherit}
 <section class="slide" id="colors-primary" style="background:var(--c-surface)">
   <div class="section-num" aria-hidden="true">03</div>
   <div class="slide-inner">
-    <h2 class="section-title">Primary Colors</h2>
+    <h2 class="section-title">Color Palette</h2>
     <div class="section-divider"></div>
-    <p class="section-subtitle">Three core blues derived directly from the live CRMJetty website — communicating authority, trust, and technological precision.</p>
+    <p class="section-subtitle">All colours are sourced directly from the live CRMJetty website — designed to communicate authority, trust, and technological precision.</p>
 
-    <div class="color-row" style="margin-top:32px">
+    <p class="cp-sub-label">Primary Colors</p>
+    <div class="color-row" style="margin-top:16px">
       <div class="color-card" onclick="copyColor('#324FC3',this)">
         <div class="color-swatch" style="background:#324FC3"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info">
@@ -1957,7 +1936,22 @@ input,textarea,select{font-family:inherit}
       </div>
     </div>
 
-    <div class="color-row">
+    <div class="color-ratio-card">
+      <h4>Color Ratio Guidance</h4>
+      <div class="ratio-bar">
+        <div class="ratio-seg" style="flex:60;background:#324FC3">60%</div>
+        <div class="ratio-seg" style="flex:30;background:#0B1437">30%</div>
+        <div class="ratio-seg" style="flex:10;background:#8aa1ff">10%</div>
+      </div>
+      <div class="ratio-legend">
+        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#324FC3"></div>Primary Blue — 60% (dominant — buttons, headings, interactive)</div>
+        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#0B1437"></div>Dark Navy — 30% (hero backgrounds, dark sections)</div>
+        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#8aa1ff"></div>Light Accent — 10% (highlights, gradients, focus states)</div>
+      </div>
+    </div>
+
+    <p class="cp-sub-label">Neutral Colors</p>
+    <div class="color-row" style="margin-top:16px">
       <div class="color-card" onclick="copyColor('#1A1A1A',this)">
         <div class="color-swatch" style="background:#1A1A1A"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info">
@@ -2005,31 +1999,9 @@ input,textarea,select{font-family:inherit}
       </div>
     </div>
 
-    <div class="color-ratio-card">
-      <h4>Color Ratio Guidance</h4>
-      <div class="ratio-bar">
-        <div class="ratio-seg" style="flex:60;background:#324FC3">60%</div>
-        <div class="ratio-seg" style="flex:30;background:#0B1437">30%</div>
-        <div class="ratio-seg" style="flex:10;background:#8aa1ff">10%</div>
-      </div>
-      <div class="ratio-legend">
-        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#324FC3"></div>Primary Blue — 60% (dominant — buttons, headings, interactive)</div>
-        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#0B1437"></div>Dark Navy — 30% (hero backgrounds, dark sections)</div>
-        <div class="ratio-leg-item"><div class="ratio-dot" style="background:#8aa1ff"></div>Light Accent — 10% (highlights, gradients, focus states)</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 3.2 Secondary + Gradients -->
-<section class="slide" id="colors-secondary">
-  <div class="section-num" aria-hidden="true">03</div>
-  <div class="slide-inner">
-    <h2 class="section-title">Secondary &amp; Semantic Colors</h2>
-    <div class="section-divider"></div>
-
-    <p style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:14px">Semantic / Functional Colors</p>
-    <div class="semantic-row">
+    <!-- SEMANTIC / SYSTEM COLORS -->
+    <p class="cp-sub-label">Semantic / System Colors</p>
+    <div class="semantic-row" style="margin-top:16px">
       <div class="color-card" onclick="copyColor('#22c55e',this)">
         <div class="color-swatch" style="background:#22c55e"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info"><div class="color-name">Success</div><div class="color-hex">#22C55E</div><div class="color-rgb">RGB 34, 197, 94</div><div class="color-usage">Success states, confirmations, positive badges</div></div>
@@ -2046,26 +2018,15 @@ input,textarea,select{font-family:inherit}
         <div class="color-swatch" style="background:#2563eb"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info"><div class="color-name">Info</div><div class="color-hex">#2563EB</div><div class="color-rgb">RGB 37, 99, 235</div><div class="color-usage">Informational banners, tooltips, security sections</div></div>
       </div>
-    </div>
-
-    <p style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);margin-top:32px;margin-bottom:14px">CTA &amp; Accent Colors</p>
-    <div class="semantic-row">
       <div class="color-card" onclick="copyColor('#c73c22',this)">
         <div class="color-swatch" style="background:#c73c22"><button class="copy-btn" tabindex="-1">Copy HEX</button></div>
         <div class="color-info"><div class="color-name">CTA Red-Orange</div><div class="color-hex">#C73C22</div><div class="color-rgb">RGB 199, 60, 34</div><div class="color-usage">Play buttons, urgent CTAs, promotional highlights</div></div>
       </div>
-      <div class="color-card" onclick="copyColor('#e0e8ff',this)">
-        <div class="color-swatch" style="background:#e0e8ff;border:1px solid #dce3ec"><button class="copy-btn" style="color:#555;background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.1)" tabindex="-1">Copy HEX</button></div>
-        <div class="color-info"><div class="color-name">Blue Tint Surface</div><div class="color-hex">#E0E8FF</div><div class="color-rgb">RGB 224, 232, 255</div><div class="color-usage">Feature section tints, icon backgrounds, card fills</div></div>
-      </div>
-      <div class="color-card" onclick="copyColor('#eef4ff',this)">
-        <div class="color-swatch" style="background:#eef4ff;border:1px solid #dce3ec"><button class="copy-btn" style="color:#555;background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.1)" tabindex="-1">Copy HEX</button></div>
-        <div class="color-info"><div class="color-name">Pale Blue Surface</div><div class="color-hex">#EEF4FF</div><div class="color-rgb">RGB 238, 244, 255</div><div class="color-usage">Blog card borders, subtle section backgrounds</div></div>
-      </div>
     </div>
 
-    <p style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text-muted);margin-top:32px;margin-bottom:14px">Approved Gradients</p>
-    <div class="gradient-row">
+    <!-- GRADIENT COLORS -->
+    <p class="cp-sub-label">Gradient Colors</p>
+    <div class="gradient-row" style="margin-top:16px">
       <div class="grad-card">
         <div class="grad-swatch" style="background:linear-gradient(135deg,#0B1437 0%,#324FC3 100%)"></div>
         <div class="grad-info"><div class="grad-name">Primary Gradient</div><div class="grad-code">135deg · #0B1437 → #324FC3<br>Use: Hero backgrounds, CTA sections, cover slides</div></div>
@@ -2080,24 +2041,56 @@ input,textarea,select{font-family:inherit}
       </div>
     </div>
 
-    <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
-      <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-md);padding:18px">
-        <p style="font-size:11px;font-weight:700;color:var(--c-success);margin-bottom:9px;text-transform:uppercase;letter-spacing:1px">✓ Do</p>
-        <ul style="font-size:12px;color:var(--c-text-muted);line-height:1.9;list-style:disc;padding-left:16px">
-          <li>WCAG AA contrast ≥ 4.5:1 for all text</li>
-          <li>White text on #0B1437, #022484, and #324FC3 backgrounds</li>
-          <li>Semantic colours only for their designated purpose</li>
-        </ul>
-      </div>
-      <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-md);padding:18px">
-        <p style="font-size:11px;font-weight:700;color:var(--c-error);margin-bottom:9px;text-transform:uppercase;letter-spacing:1px">✕ Don't</p>
-        <ul style="font-size:12px;color:var(--c-text-muted);line-height:1.9;list-style:disc;padding-left:16px">
-          <li>Do not use green/red/yellow as brand accent</li>
-          <li>Never use pure black (#000) as primary text</li>
-          <li>Do not introduce unapproved colours</li>
-        </ul>
-      </div>
-    </div>
+    <!-- TEXT COLOR REFERENCE -->
+    <p class="cp-sub-label">Text Color Reference</p>
+    <table class="text-ref-table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Swatch</th>
+          <th>HEX</th>
+          <th>CSS Variable</th>
+          <th>Usage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary Text</td>
+          <td><span class="tc-dot" style="background:#1A1A1A"></span></td>
+          <td class="code">#1A1A1A</td>
+          <td class="code">--c-text</td>
+          <td>Body text, headings on light backgrounds</td>
+        </tr>
+        <tr>
+          <td>Muted Text</td>
+          <td><span class="tc-dot" style="background:#555555"></span></td>
+          <td class="code">#555555</td>
+          <td class="code">--c-text-muted</td>
+          <td>Secondary copy, descriptions, section subtitles</td>
+        </tr>
+        <tr>
+          <td>Light Text</td>
+          <td><span class="tc-dot" style="background:#888888"></span></td>
+          <td class="code">#888888</td>
+          <td class="code">--c-text-light</td>
+          <td>Captions, metadata, placeholder text</td>
+        </tr>
+        <tr>
+          <td>Link / CTA Text</td>
+          <td><span class="tc-dot" style="background:#324FC3"></span></td>
+          <td class="code">#324FC3</td>
+          <td class="code">--c-primary</td>
+          <td>Interactive links, CTA labels, active nav items</td>
+        </tr>
+        <tr>
+          <td>Reversed Text</td>
+          <td><span class="tc-dot" style="background:#ffffff;border:1px solid #e8ecf0;box-sizing:border-box"></span></td>
+          <td class="code">#FFFFFF</td>
+          <td class="code">--c-white</td>
+          <td>Text on #0B1437, #022484, and #324FC3 backgrounds</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -2143,31 +2136,55 @@ input,textarea,select{font-family:inherit}
     <h2 class="section-title">Typography Scale</h2>
     <div class="section-divider"></div>
 
-    <table class="typo-table">
-      <thead>
-        <tr>
-          <th style="width:120px">Style</th>
-          <th>Live Preview</th>
-          <th class="code" style="width:80px">Size</th>
-          <th class="code" style="width:72px">Weight</th>
-          <th class="code" style="width:72px">Line H.</th>
-          <th style="width:190px">Usage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Hero Headline</td><td><span style="font-size:42px;font-weight:800;font-family:'Inter';letter-spacing:-1.5px;color:var(--c-primary);line-height:1.1">Transform Your CRM</span></td><td class="code">50–52px</td><td class="code">800</td><td class="code">1.3</td><td>Hero section headline</td></tr>
-        <tr><td>Section Heading</td><td><span style="font-size:32px;font-weight:700;font-family:'Inter';color:var(--c-primary);line-height:1.3">Section Title</span></td><td class="code">32px</td><td class="code">700</td><td class="code">1.3</td><td>All section headings</td></tr>
-        <tr><td>Stats / Metric</td><td><span style="font-size:36px;font-weight:700;font-family:'Inter';color:var(--c-primary)">500+</span></td><td class="code">36px</td><td class="code">700–800</td><td class="code">1.2</td><td>Statistics, KPIs</td></tr>
-        <tr><td>H3 / Card Title</td><td><span style="font-size:22px;font-weight:700;color:var(--c-text-secondary)">Portal Management</span></td><td class="code">20–24px</td><td class="code">700</td><td class="code">1.3</td><td>Card headings, features</td></tr>
-        <tr><td>Body Large</td><td><span style="font-size:18px;font-weight:400;color:var(--c-text-muted)">Hero subtitle — supporting description line</span></td><td class="code">18px</td><td class="code">400</td><td class="code">1.75</td><td>Hero sub, lead copy</td></tr>
-        <tr><td>Body Regular</td><td><span style="font-size:16px;color:var(--c-text-muted)">Standard paragraph and body content across all pages</span></td><td class="code">16px</td><td class="code">400</td><td class="code">1.6</td><td>All body text</td></tr>
-        <tr><td>Body Small</td><td><span style="font-size:14px;color:var(--c-text-muted)">Secondary descriptions, card copy, helper text</span></td><td class="code">14px</td><td class="code">400</td><td class="code">1.6</td><td>Cards, descriptions</td></tr>
-        <tr><td>Caption</td><td><span style="font-size:12px;color:var(--c-text-muted)">Image caption · metadata · timestamps</span></td><td class="code">12px</td><td class="code">400</td><td class="code">1.5</td><td>Captions, meta</td></tr>
-        <tr><td>Label / Eyebrow</td><td><span style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-primary)">SECTION TAG · EYEBROW</span></td><td class="code">10–12px</td><td class="code">700</td><td class="code">1.4</td><td>Section tags, labels</td></tr>
-        <tr><td>Button</td><td><span style="font-size:14px;font-weight:600;color:var(--c-primary)">Get Started Free →</span></td><td class="code">14–16px</td><td class="code">600</td><td class="code">1</td><td>All button text</td></tr>
-        <tr><td>Nav Link</td><td><span style="font-size:13px;font-weight:600;color:var(--c-text-secondary)">Products · Solutions · Pricing</span></td><td class="code">13–14px</td><td class="code">600</td><td class="code">1</td><td>Navigation items</td></tr>
-      </tbody>
-    </table>
+    <!-- Heading Scale -->
+    <div class="type-scale-group">
+      <p class="fav-group-label" style="margin-bottom:0;display:block">Heading Scale</p>
+      <div class="type-row">
+        <div class="type-meta"><span class="type-tag">H1</span><span class="type-spec">56px · 700 · 1.15</span></div>
+        <div class="type-preview"><span style="font-size:48px;font-weight:700;line-height:1.15;color:var(--c-text);font-family:'Inter',sans-serif;letter-spacing:-1px">Digital Transformation</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><span class="type-tag">H2</span><span class="type-spec">40px · 700 · 1.2</span></div>
+        <div class="type-preview"><span style="font-size:34px;font-weight:700;line-height:1.2;color:var(--c-text);font-family:'Inter',sans-serif">Our Services &amp; Capabilities</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><span class="type-tag">H3</span><span class="type-spec">28px · 600 · 1.3</span></div>
+        <div class="type-preview"><span style="font-size:28px;font-weight:600;line-height:1.3;color:var(--c-text);font-family:'Inter',sans-serif">Product Development</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><span class="type-tag">H4</span><span class="type-spec">22px · 600 · 1.35</span></div>
+        <div class="type-preview"><span style="font-size:22px;font-weight:600;line-height:1.35;color:var(--c-text);font-family:'Inter',sans-serif">ReactJS Development</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><span class="type-tag">H5</span><span class="type-spec">18px · 600 · 1.4</span></div>
+        <div class="type-preview"><span style="font-size:18px;font-weight:600;line-height:1.4;color:var(--c-text);font-family:'Inter',sans-serif">Case Study Overview</span></div>
+      </div>
+      <div class="type-row" style="border-bottom:none">
+        <div class="type-meta"><span class="type-tag">H6</span><span class="type-spec">16px · 600 · 1.5</span></div>
+        <div class="type-preview"><span style="font-size:16px;font-weight:600;line-height:1.5;color:var(--c-text);font-family:'Inter',sans-serif">Section Label</span></div>
+      </div>
+    </div>
+
+    <!-- Body Text Scale -->
+    <div class="type-scale-group">
+      <p class="fav-group-label" style="margin-bottom:0;display:block">Body Text Scale</p>
+      <div class="type-row">
+        <div class="type-meta"><span class="type-tag">Body LG</span><span class="type-spec">18px · 400 · 1.7</span></div>
+        <div class="type-preview"><span style="font-size:18px;font-weight:400;line-height:1.7;color:var(--c-text-muted);font-family:'Inter',sans-serif">We build digital products that scale — from MVP to enterprise, with 19 years of proven delivery.</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><span class="type-tag">Body</span><span class="type-spec">16px · 400 · 1.75</span></div>
+        <div class="type-preview"><span style="font-size:16px;font-weight:400;line-height:1.75;color:var(--c-text-muted);font-family:'Inter',sans-serif">Standard body text used for card descriptions, paragraphs, and general content across the site.</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><span class="type-tag">Body SM</span><span class="type-spec">14px · 400 · 1.6</span></div>
+        <div class="type-preview"><span style="font-size:14px;font-weight:400;line-height:1.6;color:var(--c-text-muted);font-family:'Inter',sans-serif">Meta information, captions, helper text, timestamps — secondary content.</span></div>
+      </div>
+      <div class="type-row" style="border-bottom:none">
+        <div class="type-meta"><span class="type-tag">Caption</span><span class="type-spec">12px · 400 · 1.5</span></div>
+        <div class="type-preview"><span style="font-size:12px;font-weight:400;line-height:1.5;color:var(--c-text-muted);font-family:'Inter',sans-serif">Legal disclaimers, footnotes, micro-copy</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2179,7 +2196,7 @@ input,textarea,select{font-family:inherit}
   <div class="slide-inner">
     <h2 class="section-title">Iconography</h2>
     <div class="section-divider"></div>
-    <p class="section-subtitle">CRMJetty uses a consistent outlined icon style — stroke-based, rounded ends, 1.8px stroke, 24×24 grid. Icons reinforce feature meaning without overpowering layout.</p>
+    <p class="section-subtitle">CRMJetty uses <a href="https://fonts.google.com/icons" target="_blank" rel="noopener" style="color:var(--c-primary);font-weight:600;text-decoration:underline;text-underline-offset:3px">Google Material Symbols</a> — rounded outlined style, drawn on a 24×24 grid with 1.8px stroke weight. Icons reinforce feature meaning without overpowering layout.</p>
 
     <!-- Icon grid — SVG line icons -->
     <div class="icon-grid">
@@ -2249,8 +2266,60 @@ input,textarea,select{font-family:inherit}
       </div>
     </div>
 
+    <!-- Icon Color Usage -->
+    <p class="fav-group-label" style="margin-top:40px;margin-bottom:0;display:block">Icon Color Usage</p>
+    <div style="display:flex;gap:0;flex-wrap:wrap;margin-top:24px;align-items:flex-start">
+
+      <!-- No background: Primary Blue -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 32px 0 0">
+        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:#324FC3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Primary Blue</span>
+        <span style="font-size:11px;color:var(--c-text-muted);text-align:center;line-height:1.5">#324FC3<br>No background</span>
+      </div>
+
+      <!-- No background: Text Primary -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 32px 0 0">
+        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:#1A1A1A;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Text Primary</span>
+        <span style="font-size:11px;color:var(--c-text-muted);text-align:center;line-height:1.5">#1A1A1A<br>No background</span>
+      </div>
+
+      <!-- Vertical divider -->
+      <div style="width:1px;background:var(--c-border);align-self:stretch;margin:0 28px 0 4px"></div>
+
+      <!-- With background: Dark -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 32px 0 0">
+        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;background:#0B1437;border-radius:20px">
+          <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:rgba(255,255,255,0.9);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Dark Background</span>
+        <span style="font-size:11px;color:var(--c-text-muted);text-align:center;line-height:1.5">#0B1437 bg<br>White icon</span>
+      </div>
+
+      <!-- With background: Light -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;background:#E0E8FF;border-radius:20px">
+          <svg viewBox="0 0 24 24" style="width:44px;height:44px;fill:none;stroke:#324FC3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <span style="font-size:12px;font-weight:700;color:var(--c-text);text-align:center">Light Background</span>
+        <span style="font-size:11px;color:var(--c-text-muted);text-align:center;line-height:1.5">#E0E8FF bg<br>Primary Blue icon</span>
+      </div>
+    </div>
+
     <!-- Icon specs -->
-    <div class="icon-specs-grid">
+    <div class="icon-specs-grid" style="margin-top:36px">
       <div class="icon-spec">
         <h4>Style Rules</h4>
         <p>Stroke-based, outlined. Stroke width: <strong>1.8px</strong>. Caps and joins: <strong>round</strong>. No fill. Corner radius: <strong>2px</strong> on rectangles.</p>
@@ -2262,76 +2331,6 @@ input,textarea,select{font-family:inherit}
       <div class="icon-spec">
         <h4>Color Rules</h4>
         <p>Default: <strong>#324FC3</strong> (primary blue). On dark bg: <strong>rgba(255,255,255,0.85)</strong>. In buttons: inherit button text color. Disabled: <strong>#9CA3AF</strong>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5.2 Photography -->
-<section class="slide" id="photography">
-  <div class="section-num" aria-hidden="true">05</div>
-  <div class="slide-inner">
-    <h2 class="section-title">Photography Style</h2>
-    <div class="section-divider"></div>
-    <p class="section-subtitle">CRMJetty imagery should feel modern, professional, and human — showing real business results, clean SaaS dashboards, and confident people in enterprise settings.</p>
-
-    <div class="photo-grid">
-      <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#eef1ff,#e0e7ff)">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
-          <span>Hero — People & Business<br><em style="font-weight:400;font-size:10px;opacity:.7">Confident, collaborative, enterprise</em></span>
-        </div>
-        <div class="photo-overlay"><span>✓ People Photography</span></div>
-      </div>
-      <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#f8f9ff,#eef1ff)">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          <span>Product — Dashboard Screenshots<br><em style="font-weight:400;font-size:10px;opacity:.7">Clean UI, high resolution, branded</em></span>
-        </div>
-        <div class="photo-overlay"><span>✓ Product Shots</span></div>
-      </div>
-      <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#022484,#324fc3)">
-          <svg viewBox="0 0 24 24" style="opacity:.3"><rect x="2" y="2" width="20" height="20" rx="2"/></svg>
-          <span style="color:rgba(255,255,255,.7)">Case Study — Client Results<br><em style="font-weight:400;font-size:10px;opacity:.6">Overlay with brand gradient + stat callouts</em></span>
-        </div>
-        <div class="photo-overlay"><span>✓ Case Study Images</span></div>
-      </div>
-      <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#eef1ff,#dde4ff)">
-          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-          <span>Blog / Content Images<br><em style="font-weight:400;font-size:10px;opacity:.7">Illustrative, informative, clean bg</em></span>
-        </div>
-        <div class="photo-overlay"><span>✓ Blog Images</span></div>
-      </div>
-      <div class="photo-card">
-        <div class="photo-ph" style="background:#ffecec">
-          <svg viewBox="0 0 24 24" style="stroke:#ef4444"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <span style="color:#dc2626">Low quality, blurry<br><em style="font-weight:400;font-size:10px">Avoid unprofessional imagery</em></span>
-        </div>
-        <div class="photo-overlay" style="background:linear-gradient(to top,rgba(239,68,68,.5),transparent)"><span>✕ Avoid: Low Quality</span></div>
-      </div>
-      <div class="photo-card">
-        <div class="photo-ph" style="background:linear-gradient(135deg,#fde68a,#fbbf24)">
-          <svg viewBox="0 0 24 24" style="stroke:#92400e"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <span style="color:#92400e">Off-brand colours<br><em style="font-weight:400;font-size:10px">Do not use yellow/orange photo tints</em></span>
-        </div>
-        <div class="photo-overlay" style="background:linear-gradient(to top,rgba(239,68,68,.5),transparent)"><span>✕ Avoid: Off-brand Tones</span></div>
-      </div>
-    </div>
-
-    <div style="margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-      <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-md);padding:18px">
-        <p style="font-size:11px;font-weight:700;color:var(--c-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Overlay Treatment</p>
-        <p style="font-size:12px;color:var(--c-text-muted);line-height:1.7">Apply 30–60% brand gradient overlay when using photography as a section background. Ensures text legibility and brand cohesion.</p>
-      </div>
-      <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-md);padding:18px">
-        <p style="font-size:11px;font-weight:700;color:var(--c-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Cropping Rules</p>
-        <p style="font-size:12px;color:var(--c-text-muted);line-height:1.7">Use 16:9 for banners, 4:3 for cards, 1:1 for thumbnails. Always focus on the subject — avoid tight crops that cut faces awkwardly.</p>
-      </div>
-      <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-md);padding:18px">
-        <p style="font-size:11px;font-weight:700;color:var(--c-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">People Photography</p>
-        <p style="font-size:12px;color:var(--c-text-muted);line-height:1.7">Represent a diverse, professional audience. Show people in enterprise / office settings, focused on collaboration and technology.</p>
       </div>
     </div>
   </div>
@@ -2458,18 +2457,12 @@ input,textarea,select{font-family:inherit}
 
         <div class="fg">
           <label>Full Name <span style="color:var(--c-error)">*</span></label>
-          <div class="fi-wrap">
-            <svg class="fi-icon-l" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <input class="f-input pl" type="text" placeholder="Enter your full name">
-          </div>
+          <input class="f-input" type="text" placeholder="Enter your full name">
         </div>
 
         <div class="fg">
           <label>Work Email <span style="color:var(--c-error)">*</span></label>
-          <div class="fi-wrap">
-            <svg class="fi-icon-l" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <input class="f-input pl" type="email" placeholder="you@company.com">
-          </div>
+          <input class="f-input" type="email" placeholder="you@company.com">
         </div>
 
         <div class="fg">
@@ -3052,11 +3045,11 @@ input,textarea,select{font-family:inherit}
 
   /* â”€â”€ Section IDs in order â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   const SECTIONS = [
-    'cover', 'brand-overview', 'brand-audience',
-    'logo-primary', 'logo-backgrounds', 'logo-mono', 'logo-misuse', 'logo-favicon',
-    'colors-primary', 'colors-secondary',
+    'cover', 'brand-overview',
+    'logo-primary', 'logo-backgrounds', 'logo-misuse', 'logo-favicon',
+    'colors-primary',
     'typography-primary', 'typography-scale',
-    'iconography', 'photography',
+    'iconography',
     'buttons', 'form-elements', 'cards-section',
     'website-app', 'design-tokens',
     'dos-donts', 'brand-summary'
